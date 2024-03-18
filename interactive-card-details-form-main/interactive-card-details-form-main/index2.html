@@ -8,9 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
+  <!-- <script src="card.js" defer></script> -->
   <!-- <script src="script.js" defer></script> -->
-  <script src="script2.js" defer></script>
+  <script src="script3.js" defer></script>
 
   <title>Interactive card details form</title>
 
@@ -35,22 +36,25 @@
         </div>
       </div>
 
-      <div class="back__card"></div>
+      <div class="back__card">
+        <div id="backCardCvcDisplay" class="card_cvc_display"></div>
+      </div>
+      
 
     </div>
 
-    <div class="form__container">
-      <form id="userForm" class="user__form">
+    <div class="form__container" >
+      <form id="userForm" class="user__form" >
 
         <div class="card__name">
           <label for="cardHolderName">CARDHOLDER NAME</label>
-          <input class="all_fields" type="text" id="cardHolderName" name="cardHolderName" required placeholder=" e.g. Jane Applessed">
+          <input class="all_fields" type="text" id="cardHolderName" name="cardHolderName" required placeholder=" e.g. Jane Applessed" >
           <div id="validateName"></div>
         </div>
     
         <div class="card__number">
           <label for="cardHolder">CARD NUMBER</label>
-          <input class="all_fields" type="text" id="cardNumber" name="cardNumber" required placeholder="e.g. 1234 5678 9123 0000">
+          <input class="all_fields " type="text" id="cardNumber" name="cardNumber" required placeholder="e.g. 1234 5678 9123 0000">
           <div id="validateNumber"></div>
         </div>
     
@@ -84,9 +88,16 @@
         </div>
 
     
-        <button type="button" onclick="confirmData()" class="confirm__button">Confirm</button>
+        <button type="button" onclick="confirmData()" class="confirm__button" id="confirmButton">Confirm</button>
       </form>
     </div>
+
+
+    <div id="thankYouMessage" style="display: none;">
+      <h2>Thank You!</h2>
+      <p>Your submission was successful.</p>
+    </div>
+
     
 
   </main >
