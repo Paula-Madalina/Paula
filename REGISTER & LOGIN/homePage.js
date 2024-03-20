@@ -14,6 +14,19 @@ function extractUserName(email) {
 }
 
 
+function loadAndDisplayShifts(userEmail) {
+    // Incarcam datele de shifturi din local storage asociate utilizatorului curent
+    let shiftDataArray = JSON.parse(localStorage.getItem(userEmail)) || [];
+
+    // Afișăm datele de shifturi în tabel
+    let tableBody = document.querySelector("#tableShift tbody");
+    tableBody.innerHTML = ""; // Stergem datele vechi din tabel
+
+    shiftDataArray.forEach(shiftData => {
+        addDataToTable(shiftData);
+    });
+}
+
 function addShift() {
 let formShift = document.querySelector("#formShift");
 let shiftPlaceInput = document.getElementById("placeInput");

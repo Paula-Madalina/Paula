@@ -145,7 +145,7 @@ function validateHoursInput() {
 
 
 function saveToLocalStorage() {
-    // FACEM VIZIBIL MODALUL 
+    // FACEM VIZIBIL MODALUL
     myModal.show();
 
     // INCHIDEM MODALUL DACA ALEGEM OPTIUNEA "ANULARE"
@@ -153,44 +153,45 @@ function saveToLocalStorage() {
         myModal.hide();
     });
 
-
-
-
     // CE SE INTAMPLA CAND APASAM "DA"?
     document.querySelector('#confirmBtn').addEventListener('click', function(event) {
         let newShiftData = {
             place: placeInput.value,
             hours: hoursInput.value
         };
-    
-        // Verifică dacă există deja datele în localStorage
-        let storedShiftData = localStorage.getItem("shiftData");
-        let shiftDataArray = storedShiftData ? JSON.parse(storedShiftData) : [];
+
+        // Verifica daca exista deja shifturi salvate pentru utilizatorul curent
+        let currentUserEmail = localStorage.getItem("currentUserEmail");
+        let userShiftData = localStorage.getItem(currentUserEmail + "_shiftData");
+        let shiftDataArray = userShiftData ? JSON.parse(userShiftData) : [];
 
         // Adaugă datele noi la array-ul existent
         shiftDataArray.push(newShiftData);
 
-        // Actualizează datele în localStorage
-        localStorage.setItem("shiftData", JSON.stringify(shiftDataArray));
+        // Actualizează datele în localStorage sub cheia unică a utilizatorului curent
+        localStorage.setItem(currentUserEmail + "_shiftData", JSON.stringify(shiftDataArray));
 
-        // Ascunde formularul de adăugare a shiftului si modalul
+        // Ascunde formularul de adăugare a shiftului și modalul
         formShift.style.display = "none";
         myModal.hide();
 
     },{once:true});
-
 }
 
 
 function viewShift() {
     formShift.style.display = "none";
-    
 
-    let shiftDataArray = JSON.parse(localStorage.getItem("shiftData"));
+    // Obțineți email-ul utilizatorului curent
+    let currentUserEmail = localStorage.getItem("currentUserEmail");
 
-    if (shiftDataArray && shiftDataArray.length > 0) {
+    // Verifică dacă există shifturi salvate pentru utilizatorul curent
+    let userShiftData = localStorage.getItem(currentUserEmail + "_shiftData");
+
+    if (userShiftData && userShiftData.length > 0) {
+        // Parsați datele shifturilor și afișați-le în tabel
+        let shiftDataArray = JSON.parse(userShiftData);
         tableBody.innerHTML = ""; // Clear the table body before adding new rows
-
         shiftDataArray.forEach((shift, index) => {
             let row = `<tr>
                             <th scope="row">${index + 1}</th>
@@ -210,6 +211,7 @@ function viewShift() {
         alert("Nu există date de afișat.");
     }
 }
+
 
 function sortTable() {
    
@@ -239,7 +241,7 @@ function logoutBtn() {
   
     // Adăugați un ascultător de evenimente pentru butonul "DA"
     document.getElementById('confirmLogout').addEventListener('click', function () {
-        localStorage.removeItem('shiftData');
+        // localStorage.removeItem('shiftData');
         // Redirecționați utilizatorul către pagina de deconectare
         window.location.href = 'login.html';
     });
