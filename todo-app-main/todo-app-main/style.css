@@ -70,8 +70,12 @@ body {
 /*  */
 
 .create__todo__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     width: 100%;
+   
   }
   
   /* Stilizare pentru SVG */
@@ -89,10 +93,16 @@ body {
     padding-left: 28px; /* Lăsăm spațiu pentru SVG */
     width: 100%;
     height: 30px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    /* border: 1px solid #ccc; */
+    color: white;
   }
 
   .create__todo__container input:checked + svg path {
     stroke-dasharray: 1000; /* Marchează cercul când este selectat */
+  }
+
+  /* Stilizare pentru placeholder */
+.custom-input::placeholder {
+    color: #999; /* culoarea placeholder-ului */
+    font-style: italic; /* stilul fontului pentru placeholder */
   }
