@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,23 +12,27 @@
     />
     <script src="script.js" defer></script>
     <title>Tic Tac Toe</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Tic Tac Toe</h1>
-        <div id="board" class="board">
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-            <div class="cell" data-cell></div>
-        </div>
-        <button id="restartButton" class="restart__button animated">Restart</button>
-        <p id="status">X's turn</p>
+      <h1>Tic Tac Toe</h1>
+      <div id="board" class="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+      <button id="restartButton" class="restart__button animated" onclick="restartButton()">
+        Restart
+      </button>
+      <p id="status">X's turn</p>
     </div>
-</body>
+
+
+  </body>
 </html>

@@ -1,0 +1,189 @@
+:root {
+  --background-color: hsl(235, 24%, 19%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.main {
+  background-color: hsl(235, 21%, 11%);
+  background-image: url(todo-app-main/images/bg-desktop-dark.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.page__container {
+  width: 40%;
+  height: 45%;
+  color: white;
+  margin-top: 65px;
+}
+
+.page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.page__title {
+  font-size: 38px;
+}
+
+/* Add a new todo */
+
+.page__new__todo {
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--background-color);
+}
+
+.dot {
+  height: 22px;
+  width: 22px;
+  background-color: transparent;
+  border: 2px solid hsl(233, 14%, 35%);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot:hover {
+  border-radius: 100%;
+  background-image: linear-gradient(
+      var(--background-color),
+      var(--background-color)
+    ),
+    radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.complete__dot {
+  width: 22px;
+  height: 22px;
+  color: white;
+  border: double 2px transparent;
+  border-radius: 100%;
+  background-image: linear-gradient(transparent, transparent),
+    radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+#newTodoInput {
+  height: 35%;
+  width: 90%;
+  font-size: 16px;
+  background-color: var(--background-color);
+  outline: none;
+  border: none;
+  color: hsl(234, 39%, 85%);
+  letter-spacing: 0.12rem;
+}
+
+.page__todo__container {
+  margin-top: 30px;
+  background-color: var(--background-color);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.todo__group {
+  padding: 15px;
+  border-bottom: 1px solid hsl(233, 14%, 35%);
+  display: grid;
+  grid-template-areas: "dot item button";
+  grid-template-columns: auto 1fr auto;
+}
+
+.todo__group > .dot {
+  grid-area: "dot";
+}
+
+.todo__group > .todo__item {
+  grid-area: "item";
+}
+
+.todo__group > .todo__delete {
+  grid-area: "button";
+}
+
+.todo__group .dragging {
+  background-color: red;
+}
+
+.todo__item {
+  margin-top: 5px;
+  margin-left: 15px;
+  color: hsl(234, 39%, 85%);
+}
+
+.todo__delete {
+  display: none;
+  border: none;
+  background-color: transparent;
+  color: hsl(233, 14%, 35%);
+  font-size: 18px;
+}
+
+.todo__item:hover + .todo__delete,
+.todo__delete:hover {
+  display: inline-block;
+}
+
+/* states */
+
+.states__group {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(235, 24%, 19%);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.items__left {
+  font-size: 16px;
+  font-family: "Josefin Sans", sans-serif;
+  color: hsl(233, 14%, 35%);
+}
+
+#statesButtonsContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.states__button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+  color: hsl(233, 14%, 35%);
+}
+
+.states__button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.states__button:active {
+  color: red;
+}

@@ -1,108 +1,127 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    color: white;
-    
-
+  height: 100vh;
+  width: 100vw;
+  color: white;
 }
 
 .page_container {
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: hsl(235, 21%, 11%);
-    position: relative;
-    z-index: 10;
-
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(235, 21%, 11%);
+  position: relative;
+  z-index: 10;
 }
 
 .page_image_container {
-    background-color: white; 
-    height: 25%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: 11;
-
+  background-color: white;
+  height: 25%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 11;
 }
 
 .page_image {
-    height: 100%;
-    width: 100%;
-    object-fit:cover;
-    
-
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.page_todo_container{
-    border: 3px solid white ;
-    width: 35%;
-    height: 70%;
-    z-index: 999;
-    
+.page_todo_container {
+  /* border: 3px solid white ; */
+  width: 35%;
+  height: 70%;
+  z-index: 999;
 }
 
 .input__div {
-    position: relative;
-    z-index: 12;
+  position: relative;
+  z-index: 12;
 }
-
 
 .title__and__icon__container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-
-
 
 /*  */
 
 .create__todo__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-   
-  }
-  
-  /* Stilizare pentru SVG */
-  .create__todo__container svg {
-    position: absolute;
-    left: 8px;
-    top: 8px;
-    width: 16px;
-    height: 16px;
-  }
-  
-  /* Stilizare pentru input */
-  .create__todo__container input {
-    background-color: hsl(235, 21%, 11%);
-    padding-left: 28px; /* Lăsăm spațiu pentru SVG */
-    width: 100%;
-    height: 30px;
-    /* border: 1px solid #ccc; */
-    color: white;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  top: 10px;
+}
 
-  .create__todo__container input:checked + svg path {
-    stroke-dasharray: 1000; /* Marchează cercul când este selectat */
-  }
+/* Stilizare pentru SVG */
+.create__todo__container svg {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+}
 
-  /* Stilizare pentru placeholder */
+/* Stilizare pentru input */
+.create__todo__container input {
+  background-color: hsl(235, 21%, 11%);
+  padding-left: 28px; /* Lăsăm spațiu pentru SVG */
+  width: 100%;
+  height: 30px;
+  border: 1px solid rgb(26, 27, 49);
+  color: white;
+  margin-bottom: 30px;
+}
+
+.create__todo__container input:checked + svg path {
+  stroke-dasharray: 1000; /* Marchează cercul când este selectat */
+}
+
+/* Stilizare pentru placeholder */
 .custom-input::placeholder {
-    color: #999; /* culoarea placeholder-ului */
-    font-style: italic; /* stilul fontului pentru placeholder */
-  }
+  color: #999; /* culoarea placeholder-ului */
+  font-style: italic; /* stilul fontului pentru placeholder */
+}
+
+.svg__circle {
+  border-radius: 50%;
+  color: gray;
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+}
+
+.create__todo__list {
+  width: 100%;
+  height: auto;
+  /* border-top: 1px solid wheat; */
+  /* border-bottom: 1px solid wheat; */
+  /* background-color: rgb(39, 27, 12); */
+}
+
+.todo-item {
+  padding: 10px;
+  position: relative;
+  flex-direction: row;
+  /* justify-content: center; */
+  display: flex; /* Setează display-ul la flex pentru a aranja elementele pe aceeași linie */
+  align-items: center; /* Așează elementele pe axa verticală (centrat) */
+  /* border: 5px solid gray; */
+}
+.todo-item p {
+  margin-left: 30px; /* Adaugă un spațiu între SVG și text */
+}

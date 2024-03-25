@@ -1,0 +1,165 @@
+:root {
+  --background-color: hsl(235, 24%, 19%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.main {
+  background-color: hsl(235, 21%, 11%);
+  background-image: url(todo-app-main/images/bg-desktop-dark.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.page__container {
+  width: 40%;
+  height: 45%;
+  color: white;
+  margin-top: 65px;
+}
+
+.page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+
+.page__title {
+  font-size: 38px;
+}
+
+/* Add a new todo */
+
+.page__new__todo {
+  width: auto;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background-color: var(--background-color);
+}
+
+.dot__and__input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.dot {
+  height: 22px;
+  width: 22px;
+  background-color: transparent;
+  border: 2px solid hsl(233, 14%, 35%);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot:hover {
+  border-radius: 100%;
+  background-image: linear-gradient(
+      var(--background-color),
+      var(--background-color)
+    ),
+    radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  cursor: pointer;
+}
+
+.new__todo__input {
+  /* height: 35%;
+    width: 90%;
+    font-size: 16px; */
+  background-color: var(--background-color);
+  outline: none;
+  border: none;
+  color: hsl(234, 39%, 85%);
+  letter-spacing: 0.12rem;
+}
+
+.create__button {
+  padding: 7px 15px;
+  border-radius: 10px;
+  background-color: hsl(233, 14%, 35%);
+  color: white;
+  border: none;
+  letter-spacing: 0.12rem;
+}
+
+.create__button:hover {
+  background-color: var(--background-color);
+  border: 1.5px solid wheat;
+}
+
+.todo__group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #292b40;
+  gap: 15px;
+  padding: 15px;
+}
+
+.new___item__text {
+  font-family: "Josefin Sans";
+}
+
+.page__todo__container {
+  margin-top: 25px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+}
+
+.remove__item {
+  display: none;
+  cursor: pointer;
+}
+
+.todo__group:hover .remove__item {
+  display: block;
+  color: hsl(233, 14%, 35%);
+}
+
+.states__group {
+  display: flex;
+  /* flex-direction: row; */
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  background-color: var(--background-color);
+  padding: 15px;
+  border-radius: 5px;
+  color: hsl(233, 14%, 35%);
+  font-size: 15px;
+  display: none;
+}
+
+.todo__filter__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.hover__color:hover {
+  color: wheat;
+  cursor: pointer;
+}
