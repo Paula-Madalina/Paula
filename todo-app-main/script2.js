@@ -217,6 +217,7 @@ let newItemsContainer = document.querySelector("#pageTodoContainer");
 let statesGroup = document.querySelector("#statesGroup");
 
 newItemsContainer.appendChild(todoItems);
+// Modifică funcția createToDoListButton() pentru a include această funcționalitate
 
 function createToDoListButton() {
   if (inputContainer.value === "") {
@@ -226,9 +227,9 @@ function createToDoListButton() {
 
   // Creăm un container pentru fiecare element din lista de todo-uri
   let todoItemContainer = document.createElement("div");
-  todoItemContainer.classList.add("todo__group");
-  todoItemContainer.draggable = true; // Setăm atributul draggable
 
+  todoItemContainer.classList.add("todo__group", "draggable");
+  todoItemContainer.draggable = true; // Setăm atributul draggable
 
   // Atașăm evenimentul dragstart
   todoItemContainer.addEventListener("dragstart", dragStart);
@@ -265,19 +266,73 @@ function createToDoListButton() {
     statesGroup.style.display = "flex";
   }
 
+  // Adăugăm eveniment de ascultare pentru fiecare buton "X" pentru eliminarea elementului
+  const removeButtons = document.querySelectorAll(".remove__item");
+  removeButtons.forEach((button) => {
+    button.addEventListener("click", removeToDoItem);
+  });
+
+  updateItemsLeft();
 }
 
-function dragStart(event) {
-  event.dataTransfer.setData("text/plain", event.target.id);
+
+function dragStart(e) {
+  e.dataTransfer.setData("text/plain", e.target.id);
 }
 
-function allowDrop(event) {
-  event.preventDefault();
+function allowDrop(e) {
+  e.preventDefault();
+}
+function drop(e) {
+  e.preventDefault();
+  const data = e.dataTransfer.getData("text/plain");
+  const draggedElement = document.getElementById(data);
+  const dropzone = e.target.closest(".page__todo__container"); // Găsim cel mai apropiat container
+  if (!dropzone) return; // Dacă nu există container, nu facem nimic
+
+  // Determinăm poziția cursorului în containerul țintă
+  const mouseY = e.clientY;
+  const dropzoneRect = dropzone.getBoundingClientRect();
+  const relativeY = mouseY - dropzoneRect.top;
+
+  // Calculăm indexul de inserare în funcție de poziția cursorului
+  let insertionIndex;
+  const children = dropzone.children;
+  for (let i = 0; i < children.length; i++) {
+    const childRect = children[i].getBoundingClientRect();
+    if (mouseY < childRect.top + childRect.height / 2) {
+      insertionIndex = i;
+      break;
+    }
+  }
+  if (insertionIndex === undefined) {
+    insertionIndex = children.length;
+  }
+
+  // Plasăm elementul mutat în containerul potrivit la poziția calculată
+  dropzone.insertBefore(draggedElement, children[insertionIndex]);
 }
 
-function drop(event) {
-  event.preventDefault();
-  const data = event.dataTransfer.getData("text/plain");
-  const draggedItem = document.getElementById(data);
-  event.target.appendChild(draggedItem);
+function removeToDoItem(event) {
+  const todoItemContainer = event.target.closest(".todo__group");
+  todoItemContainer.remove();
+
+  // Actualizăm numărul de elemente rămase
+  updateItemsLeft();
+  if (
+    document.querySelectorAll(".page__todo__container .todo__group").length ===
+    0
+  ) {
+    statesGroup.style.display = "none"; // Ascundem statesGroup
+    // sau statesGroup.remove(); // Pentru a elimina complet statesGroup
+  }
+}
+
+function updateItemsLeft() {
+  const itemsLeft = document.querySelectorAll(
+    ".page__todo__container .todo__group"
+  ).length;
+  document.getElementById(
+    "leftItemsContainer"
+  ).textContent = `${itemsLeft} item${itemsLeft !== 1 ? "s" : ""} left`;
 }

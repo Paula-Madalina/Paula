@@ -40,7 +40,12 @@
 
         <div class="page__new__todo">
           <div class="dot__and__input">
-            <div class="dot"></div>
+            <div class="dot" onclick="triggerDot()">
+              <svg id="checkSvg" xmlns="http://www.w3.org/2000/svg" width="11" height="9" class="checkmark-svg" style="display: none;">
+                <path fill="none" stroke="#FFF" stroke-width="2" d="M1 4.304L3.696 7l6-6"/>
+              </svg>
+            </div>
+            
             <input
               type="text"
               id="newTodoInput"
@@ -58,11 +63,12 @@
             </button>
           </span>
         </div>
+        
 
         <div class="page__todo__container" id="pageTodoContainer"  ondragover="allowDrop(event)" ondrop="drop(event)"></div>
 
         <div id="statesGroup" class="states__group">
-          <div id="leftItemsContainer" class="hover__color">6 items left</div>
+          <div id="leftItemsContainer" class="hover__color"></div>
 
           <div id="statesButtonsContainer" class="todo__filter__buttons">
             <p class="hover__color">All</p>
@@ -75,6 +81,8 @@
           </div>
         </div>
       </section>
+
+      <div class="something" id="something"  ></div>
     </main>
   </body>
 </html>

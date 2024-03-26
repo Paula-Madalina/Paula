@@ -163,3 +163,16 @@ body {
   color: wheat;
   cursor: pointer;
 }
+.draggable {
+  cursor: grab; /* Schimbă cursorul la trăgerea elementului */
+}
+.checkmark-svg {
+  fill: pink; /* Schimbă culoarea de umplere a checkmark-ului */
+}
+
+
+.something {
+  width: 50px;
+  height: 50px;
+  background-color: pink;
+}
