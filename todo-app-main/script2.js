@@ -216,9 +216,6 @@ let inputContainer = document.querySelector("#newTodoInput");
 let newItemsContainer = document.querySelector("#pageTodoContainer");
 let statesGroup = document.querySelector("#statesGroup");
 
-newItemsContainer.appendChild(todoItems);
-// Modifică funcția createToDoListButton() pentru a include această funcționalitate
-
 function createToDoListButton() {
   if (inputContainer.value === "") {
     alert("Insert something!");
@@ -231,15 +228,13 @@ function createToDoListButton() {
   todoItemContainer.classList.add("todo__group", "draggable");
   todoItemContainer.draggable = true; // Setăm atributul draggable
 
-  // Atașăm evenimentul dragstart
-  todoItemContainer.addEventListener("dragstart", dragStart);
-
   let dotAndText = document.createElement("div");
   dotAndText.classList.add("dot__and__input");
   todoItemContainer.appendChild(dotAndText);
 
   // Creăm elementul pentru dot
   let dotItem = document.createElement("div");
+  dotItem.addEventListener("click", triggerDot)
   dotItem.classList.add("dot");
   dotAndText.appendChild(dotItem); // Adăugăm dot-ul în container
 
@@ -275,44 +270,6 @@ function createToDoListButton() {
   updateItemsLeft();
 }
 
-
-function dragStart(e) {
-  e.dataTransfer.setData("text/plain", e.target.id);
-}
-
-function allowDrop(e) {
-  e.preventDefault();
-}
-function drop(e) {
-  e.preventDefault();
-  const data = e.dataTransfer.getData("text/plain");
-  const draggedElement = document.getElementById(data);
-  const dropzone = e.target.closest(".page__todo__container"); // Găsim cel mai apropiat container
-  if (!dropzone) return; // Dacă nu există container, nu facem nimic
-
-  // Determinăm poziția cursorului în containerul țintă
-  const mouseY = e.clientY;
-  const dropzoneRect = dropzone.getBoundingClientRect();
-  const relativeY = mouseY - dropzoneRect.top;
-
-  // Calculăm indexul de inserare în funcție de poziția cursorului
-  let insertionIndex;
-  const children = dropzone.children;
-  for (let i = 0; i < children.length; i++) {
-    const childRect = children[i].getBoundingClientRect();
-    if (mouseY < childRect.top + childRect.height / 2) {
-      insertionIndex = i;
-      break;
-    }
-  }
-  if (insertionIndex === undefined) {
-    insertionIndex = children.length;
-  }
-
-  // Plasăm elementul mutat în containerul potrivit la poziția calculată
-  dropzone.insertBefore(draggedElement, children[insertionIndex]);
-}
-
 function removeToDoItem(event) {
   const todoItemContainer = event.target.closest(".todo__group");
   todoItemContainer.remove();
@@ -335,4 +292,9 @@ function updateItemsLeft() {
   document.getElementById(
     "leftItemsContainer"
   ).textContent = `${itemsLeft} item${itemsLeft !== 1 ? "s" : ""} left`;
+}
+
+function triggerDot(e) {
+  console.log(e.target);
+  e.target.innerText = "v"
 }

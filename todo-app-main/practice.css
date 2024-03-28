@@ -67,23 +67,19 @@ body {
 .dot {
   height: 22px;
   width: 22px;
-  background-color: transparent;
+  background-image: linear-gradient( to left green yellow);
   border: 2px solid hsl(233, 14%, 35%);
   border-radius: 50%;
   display: inline-block;
 }
 
 .dot:hover {
-  border-radius: 100%;
-  background-image: linear-gradient(
-      var(--background-color),
-      var(--background-color)
-    ),
-    radial-gradient(circle at top left, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border-color: pink;
   background-origin: border-box;
   background-clip: padding-box, border-box;
   cursor: pointer;
 }
+
 
 .new__todo__input {
   /* height: 35%;
@@ -163,16 +159,4 @@ body {
   color: wheat;
   cursor: pointer;
 }
-.draggable {
-  cursor: grab; /* Schimbă cursorul la trăgerea elementului */
-}
-.checkmark-svg {
-  fill: pink; /* Schimbă culoarea de umplere a checkmark-ului */
-}
 
-
-.something {
-  width: 50px;
-  height: 50px;
-  background-color: pink;
-}
