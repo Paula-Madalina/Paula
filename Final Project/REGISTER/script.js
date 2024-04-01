@@ -1,4 +1,4 @@
-import { validateAllInputs, validateFirstNameValue, validateLastNameValue, validateEmailValue, validatePasswordValue, validateConfirmPasswordValue, validateBirthDateValue } from "./validations.js";
+import { validateAllInputs, validateFirstNameValue, validateLastNameValue, validateEmailValue, validatePasswordValue, validateConfirmPasswordValue, validateBirthDateValue, saveUserToLocalStorage } from "./validations.js";
 
 toastr.options = {
   closeButton: true,
@@ -81,10 +81,10 @@ function registerFormData() {
   validatePasswordValue(regexPasswordFormat, passwordLabel, passwordInput, errorPasswordMessage, validatePasswordInput, valid);
   validateConfirmPasswordValue(confirmPasswordInput, passwordInput, confirmPasswordLabel, validateConfirmPasswordInput, valid);
   validateBirthDateValue(birthDateInput, birthDateLabel, birthDateContainer, valid);
+
   if(valid.every(value => value)) {
-      console.log("hthntfht");
-      window.location.href = "../LOGIN/login.html";
-    }
+    saveUserToLocalStorage(firstNameInput, lastNameInput, emailInput, passwordInput, confirmPasswordInput, birthDateInput, emailLabel, errorEmailMessage, validateEmailInput, valid)  
+  }
 
 }
 
@@ -92,13 +92,12 @@ function registerFormData() {
 
 let togglePassword = document.getElementById("togglePassword");
 togglePassword.addEventListener("click", function() {
-    let confirmPasswordInput = document.getElementById("confirmPasswordContainer");
-    // Schimbați tipul de input între "password" și "text"
-    if (confirmPasswordInput.type === "password") {
-        confirmPasswordInput.type = "text";
-        togglePassword.innerHTML = '<ion-icon name="eye-off"></ion-icon>'; // Schimbați iconița pentru a indica că parola este ascunsă
-    } else {
-        confirmPasswordInput.type = "password";
-        togglePassword.innerHTML = '<ion-icon name="eye"></ion-icon>'; // Schimbați iconița pentru a indica că parola este afișată
-    }
+  // Schimbați tipul de input între "password" și "text"
+  if (confirmPasswordInput.type === "password") {
+      confirmPasswordInput.type = "text";
+      togglePassword.innerHTML = '<ion-icon name="eye-off"></ion-icon>'; // Schimbați iconița pentru a indica că parola este ascunsă
+  } else {
+      confirmPasswordInput.type = "password";
+      togglePassword.innerHTML = '<ion-icon name="eye"></ion-icon>'; // Schimbați iconița pentru a indica că parola este afișată
+  }
 });

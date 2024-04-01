@@ -22,77 +22,86 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="register.js" defer type="module"></script>
-    <!-- <script src="validations.js" defer></script> -->
-    <link rel="stylesheet" href="register.css">
+    <script src="script.js" defer type="module"></script>
+    <link rel="stylesheet" href="style.css">
+
   </head>
   <body>
     <section>
       <div class="register__box">
         <form action="">
-          <br />
+     
           <h2 class="register__title">Register</h2>
           <br />
-
+<!-- first name -->
           <div class="name__container">
-            <div class="first__name" id="validateFirstName">
+            <div class="first__name border__color" id="validateFirstNameInput">
               <span class="icon"><ion-icon name="person"></ion-icon></span>
               <input
                 id="firstNameContainer"
                 class="first__last__name__input"
                 type="text" required
               />
-              <label class="first__name__label" id="firstNameLabel"
+              <label class="first__name__label name__label" id="firstNameLabel"
                 >First Name</label
               >
             </div>
-            <div class="last__name" id="validateLastName">
+            <!-- last name -->
+            <div class="last__name border__color" id="validateLastNameInput">
               <span class="icon"><ion-icon name="person"></ion-icon></span>
               <input
                 id="lastNameContainer"
                 class="first__last__name__input"
                 type="text" required
               />
-              <label class="last__name__label" id="lastNameLabel">Last Name</label>
+              <label class="last__name__label name__label" id="lastNameLabel">Last Name</label>
             </div>
           </div>
+          <div id="errorMessageDiv"></div> <br>
 
-          <div class="input__box" id="inputEmail">
+<!-- email  -->
+          <div class="input__box border__color" id="validateEmailInput">
             <span class="icon"><ion-icon name="mail"></ion-icon></span>
             <input id="emailContainer" class="input__field" type="email" required />
-            <label class="input__name" id="emailLabel">E-mail</label>
-          </div>
-
-          <div class="input__box" id="inputPassword">
+            <label class="input__name name__label" id="emailLabel">E-mail</label>
+          </div> 
+          <div id="errorEmailMessage"></div> <br>
+<!-- password -->
+          <div class="input__box border__color" id="validatePasswordInput">
             <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
             <input
               id="passwordContainer"
               class="input__field"
               type="password" required
             />
-            <label class="input__name" id="passwordLabel">Password</label>
+            <label class="input__name name__label" id="passwordLabel">Password</label>
           </div>
+          <div id="errorPasswordMessage"></div> <br>
 
-          <div class="input__box" id="confirmPassword">
-            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+<!-- confirm password -->
+
+          <div class="input__box border__color" id="validateConfirmPasswordInput">
+            <span class="icon" id="togglePassword"><ion-icon name="eye"></ion-icon></span>
             <input
               id="confirmPasswordContainer"
               class="input__field"
               type="password" required
             />
-            <label class="input__name" id="confirmPasswordLabel">Confirm Password</label>
+            <label class="input__name name__label" id="confirmPasswordLabel">Confirm Password</label>
           </div>
+       <br>
 
-          <div class="input__box" id="birthDateContainer">
+<!-- birth date -->
+          <div class="input__box border__color" id="validateBirthDateInput">
             <input
               id="birthDateContainer"
               class="input__field"
               type="date"
               placeholder="Birth Date" required
             />
-            <label class="input__name" id="birthDateLabel">Birth Date</label>
+            <label class="input__name name__label" id="birthDateLabel">Birth Date</label>
           </div>
-
+<!-- register button -->
           <button class="register__button" type="button" id="registerButton">
             Register
           </button>
@@ -100,7 +109,7 @@
           <div class="already__exists">
             <span class="login__link__container">
               <p>Already have an account?</p>
-              <a class="login__link" href="#">Log in</a>
+              <a class="login__link" href="../LOGIN/login.html">Log in</a>
             </span>
           </div>
         </form>
