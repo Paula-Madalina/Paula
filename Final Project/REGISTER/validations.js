@@ -115,12 +115,12 @@ export function validateConfirmPasswordValue(confirmPasswordInput, passwordInput
     confirmPasswordLabel.style.color = "red";
     validateConfirmPasswordInput.style.borderColor = "red";
     return valid.push(false);
-  // } else if(confirmPasswordInput.value.trim() !== ""){
-  //   console.log(confirmPasswordInput.value, passwordInput.value);
-  //   toastr["error"]("Passwords do not match ", "ERROR");
-  //   confirmPasswordLabel.style.color = "red";
-  //   validateConfirmPasswordInput.style.borderColor = "red";
-  //   return valid.push(false);
+  } else if(confirmPasswordInput.value.trim() == ""){
+    console.log(confirmPasswordInput.value, passwordInput.value);
+    toastr["error"]("Passwords do not match ", "ERROR");
+    confirmPasswordLabel.style.color = "red";
+    validateConfirmPasswordInput.style.borderColor = "red";
+    return valid.push(false);
   } else {
     // console.log(confirmPasswordInput.value, passwordInput.value);
     confirmPasswordLabel.style.color = "rgb(0, 255, 68)";
