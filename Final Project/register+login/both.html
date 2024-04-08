@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="refacuttot.css">
-    <script src="refacuttot.js" defer></script>
+    <!-- <link rel="stylesheet" href="refacuttot.css"> -->
+    <!-- <script src="refacuttot.js" defer></script> -->
+    <link rel="stylesheet" href="both.css">
     <link rel="stylesheet" href="responsive.css">
+    <script src="both.js"  defer></script>
 
     <!-- Link către biblioteca jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -39,8 +41,8 @@
             </div>
     
             <div class="nav__button">
-                <button class="btn__header" id="loginBtn"><a href="../refacuttot login/loginnou.html">Sign In</a></button>
-                <button class="btn__header active__btn" id="registerBtn"><a href="../REFACUT TOT/refacuttot.html">Sign Up</a></button>
+                <button class="btn__header" id="loginBtn" onclick="login()"><a href="#">Sign In</a></button>
+                <button class="btn__header active__btn" id="registerBtn" onclick="register()"><a href="#">Sign Up</a></button>
             </div>
     
             <div class="nav__menu__btn">
@@ -110,29 +112,14 @@
         </div>
 
         <div class="form__box">
-            <div class="register__container">
+
+
+
+            <div class="login__container" id="login">
                 
                 <div class="top">
-                    <span>Have an account? <a href="../refacuttot login/loginnou.html" onclick="login()">Login</a></span>
-                    <header>Sign Up</header>
-                </div>
-                <div class="two__forms">
-                    <div class="input__box__firstname">
-                        <input type="text" class="input__field" placeholder="Firstname">
-                        <i class="bx bx-user"></i>
-                    </div>
-
-                    <div class="input__box__lastname">
-                        <input type="text" class="input__field" placeholder="Lastname">
-                        <i class="bx bx-user"></i>
-                    </div>
-
-                   
-                </div>
-
-                <div class="input__box__fullname">
-                    <input type="text" class="input__field" placeholder="Fullname">
-                    <i class="bx bx-user"></i>
+                    <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
+                    <header>Login</header>
                 </div>
 
 
@@ -144,6 +131,74 @@
                 <div class="input__box">
                     <input type="password" class="input__field" placeholder="Password">
                     <i class="bx bx-lock"></i>
+                </div>
+
+                <div class="input__box">
+                    <input type="submit" class="submit" value="Login">
+                </div>
+
+                <div class="remember__terms">
+                    <div class="remember">
+                        <input type="checkbox" id="login__check">
+                        <label for="login__check">Remember Me</label>
+                    </div>
+                    <div class="terms">
+                        <label><a href="#">Forgot Password?</a></label>
+                    </div>
+                </div>
+
+                
+                    
+
+            </div>
+
+
+
+
+
+
+            <div class="register__container" id="register">
+                
+                <div class="top">
+                    <span>Have an account? <a href="#" onclick="login()">Login</a></span>
+                    <header>Sign Up</header>
+                </div>
+                <div class="two__forms">
+                    <div class="input__box__firstname">
+                        <input type="text" class="input__field" placeholder="Firstname" id="firstNameInput">
+                        <i class="bx bx-user"></i>
+                        <div id="firstnameError" class="error"></div>
+                    </div>
+
+                    <div class="input__box__lastname">
+                        <input type="text" class="input__field" placeholder="Lastname" id="lastNameInput">
+                        <i class="bx bx-user"></i>
+                        <div id="lastnameError" class="error"></div>
+
+                    </div>
+
+                   
+                </div>
+
+                <div class="input__box__fullname">
+                    <input type="text" class="input__field" placeholder="Fullname" >
+                    <i class="bx bx-user"></i>
+                </div>
+
+
+                <div class="input__box">
+                    <input type="text" class="input__field" placeholder="Email" id="emailInput">
+                    <i class="bx bx-envelope"></i>
+                    <div id="emailError" class="error"></div>
+
+                </div>
+
+                <div class="input__box">
+                    <input type="password" class="input__field" placeholder="Password" id="passwordInput">
+                    <i class="bx bx-lock"></i>
+                    <div id="passwordError" class="error"></div>
+
+
                 </div>
 
                 <div class="input__box">
@@ -227,7 +282,7 @@
 
 
 
-
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

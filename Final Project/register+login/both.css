@@ -1,8 +1,9 @@
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    letter-spacing: 1px;
     /* font-family: "Poppins", sans-serif; */
 }
 
@@ -17,7 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: white ;
+    background-color: rgb(255, 255, 255) ;
 }
 
 .nav {
@@ -28,7 +29,6 @@ body {
     align-items: center;
     width: 100%;
     height: 70px;
-    /* line-height: 100px; */
     background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
     z-index: 100;
     padding: 25px 12.5%;
@@ -73,10 +73,11 @@ body {
     
 }
 
-.btn__header a{
+.btn__header a {
     text-decoration: none;
     color: #000;
 }
+
 
 .btn__header:hover {
     background: rgba(255, 255, 255, 0.4);
@@ -145,7 +146,20 @@ body {
     transform: translateY(0);
     opacity: 1;
 } */
-
+.error {
+    color: red;
+    margin-top: -15px;
+    margin-left: 10px;
+}
+.success {
+    color: green;
+}
+.error-border {
+    border: 1px solid red;
+}
+.success-border {
+    border: 1px solid green;
+}
 
 
 
@@ -192,15 +206,35 @@ body {
     right: 0;
     width: 450px;
     height: 100%;
+    /* border: 1px solid #fff; */
     overflow: hidden;
+}
+
+
+.form__box .login__container {
+    position: absolute;
+    left: 4px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #e4e4e4;
+    transition: .5s ease-in-out;
 }
 
 
 .form__box .register__container {
     position: absolute;
+    right: -520px;
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    /* justify-content: center;
+    align-items: center; */
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -273,7 +307,7 @@ header {
 }
 
 .input__box {
-    margin: 0 30px;
+    margin: 10px 30px;
 }
 
 .input__field{
@@ -287,6 +321,10 @@ header {
     border-radius: 30px;
     outline: none;
     transition: .2s ease;
+}
+
+.input__field:hover, .input__field:focus {
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .input__field:hover{
@@ -361,7 +399,7 @@ position: relative;
 
 .submit {
     /* margin-top: 20px; */
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     color: #ffffff;
     height: 45px;
@@ -404,7 +442,9 @@ position: relative;
 }
 
 
-
+.input__box__fullname {
+    display: none;
+}
 
 
 

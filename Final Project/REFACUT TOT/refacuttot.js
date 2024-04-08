@@ -12,3 +12,14 @@ $(document).ready(function() {
         yearRange: "-100:+0", // de la acum până cu 100 de ani în urmă
     });
 });
+
+
+function myMenuFunction() {
+    let i = document.querySelector("#navMenu");
+
+    if(i.className === "nav__menu") {
+        i.className += " responsive";
+    } else {
+        i.className = "nav__menu"
+    }
+}
