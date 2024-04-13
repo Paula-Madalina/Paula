@@ -141,6 +141,9 @@
 }
 
 @media screen and (max-width: 500px) {
+    /* .two__forms {
+        display:  ;
+    } */
 
     .container .form__box {
         width: 100%;
@@ -150,15 +153,15 @@
     .input__box__fullname {
         display: block;
         font-size: 15px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    height: 50px;
-    /* width: 100%; */
-    margin-right: 30px;
-    /* padding: 0 10px 0 45px; */
-    margin-left: 30px;
-    margin-bottom: 20px;
-    border-radius: 30px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        height: 50px;
+        /* width: 100%; */
+        margin-right: 30px;
+        /* padding: 0 10px 0 45px; */
+        margin-left: 30px;
+        margin-bottom: 20px;
+        border-radius: 30px;
     }
 
     .input__box__fullname i {
@@ -168,9 +171,9 @@
         color: #000;
     }
 
-    .two__forms {
+    /* .two__forms {
         display: none;
-    }
+    } */
 
     .remember__terms {
         margin: 0px 10px;

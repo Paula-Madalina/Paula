@@ -1,5 +1,5 @@
 
-import { validateFirstName, validateLastName, validateEmail, validatePassword, validateConfirmPassword, validateBirthDate, validateFullName, registerValidation } from "./validations.js";
+import { validateFirstName, validateLastName, validateEmail, validatePassword, validateConfirmPassword, validateBirthDate, registerValidation } from "./validations.js";
 
 
 document.getElementById("registerBtn").addEventListener('click',registerPage);
@@ -134,7 +134,7 @@ function validate() {
     emailInput.addEventListener("keyup", () => { validateEmail(emailInput, emailError,regexEmailFormat, valid) });
     passwordInput.addEventListener("keyup", () => { validatePassword(passwordInput, passwordError,regexPasswordFormat, valid) });
     confirmPasswordInput.addEventListener("keyup", () => { validateConfirmPassword(confirmPasswordInput, confirmPasswordError, valid) });
-    fullNameInput.addEventListener("keyup", () => { validateFullName(fullNameInput, fullNameError, regexLettersOnly, valid)})
+    // fullNameInput.addEventListener("keyup", () => { validateFullName(fullNameInput, fullNameError, regexLettersOnly, valid)});
     $('#date').on("change",()=>{validateBirthDate(birthDateInput,birthDateError)});
     document.getElementById("registerForm").addEventListener('click', () => { registerValidation(valid)});
 
