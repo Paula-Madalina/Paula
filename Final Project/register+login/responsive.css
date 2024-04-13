@@ -34,7 +34,7 @@
         border: 2px solid rgba(255, 255, 255, 0.5);
         /* background-color: rgba(255, 255, 255, 0.2);
         mix-blend-mode: difference;  */
-        height: 550px;
+        height: auto;
         border-radius: 25px;
 
     }
@@ -71,6 +71,7 @@
     
     .remember__terms {
         font-size: 15px;
+        margin: 6px 35px;
     }
 
     
@@ -169,5 +170,9 @@
 
     .two__forms {
         display: none;
+    }
+
+    .remember__terms {
+        margin: 0px 10px;
     }
 }

@@ -8,7 +8,10 @@
     <!-- <script src="refacuttot.js" defer></script> -->
     <link rel="stylesheet" href="both.css">
     <link rel="stylesheet" href="responsive.css">
-    <script src="both.js"  defer></script>
+    <script src="validations.js" type="module"  defer></script>
+    <!-- <script src="style.js" type="module"  defer ></script> -->
+
+    <script src="both.js" type="module" defer></script>
 
     <!-- Link către biblioteca jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -41,12 +44,12 @@
             </div>
     
             <div class="nav__button">
-                <button class="btn__header" id="loginBtn" onclick="login()"><a href="#">Sign In</a></button>
-                <button class="btn__header active__btn" id="registerBtn" onclick="register()"><a href="#">Sign Up</a></button>
+                <button class="btn__header" id="loginBtn"><a href="#">Sign In</a></button>
+                <button class="btn__header active__btn" id="registerBtn" ><a href="#">Sign Up</a></button>
             </div>
     
             <div class="nav__menu__btn">
-                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+                <i class="bx bx-menu" id="burgerMenu"></i>
             </div>
         </nav>
     </div>
@@ -118,7 +121,7 @@
             <div class="login__container" id="login">
                 
                 <div class="top">
-                    <span>Don't have an account? <a href="#" onclick="register()">Sign Up</a></span>
+                    <span>Don't have an account? <a href="#" id="sign_up" >Sign Up</a></span>
                     <header>Login</header>
                 </div>
 
@@ -133,7 +136,7 @@
                     <i class="bx bx-lock"></i>
                 </div>
 
-                <div class="input__box">
+                <div class="button">
                     <input type="submit" class="submit" value="Login">
                 </div>
 
@@ -160,7 +163,7 @@
             <div class="register__container" id="register">
                 
                 <div class="top">
-                    <span>Have an account? <a href="#" onclick="login()">Login</a></span>
+                    <span>Have an account? <a href="#" id="login_btn" >Login</a></span>
                     <header>Sign Up</header>
                 </div>
                 <div class="two__forms">
@@ -173,7 +176,7 @@
                     <div class="input__box__lastname">
                         <input type="text" class="input__field" placeholder="Lastname" id="lastNameInput">
                         <i class="bx bx-user"></i>
-                        <div id="lastnameError" class="error"></div>
+                        <div id="lastNameError" class="error"></div>
 
                     </div>
 
@@ -181,8 +184,10 @@
                 </div>
 
                 <div class="input__box__fullname">
-                    <input type="text" class="input__field" placeholder="Fullname" >
+                    <input type="text" class="input__field" placeholder="Username" id="fullNameInput" >
                     <i class="bx bx-user"></i>
+                    <div id="fullNameError" class="error"></div>
+
                 </div>
 
 
@@ -202,18 +207,20 @@
                 </div>
 
                 <div class="input__box">
-                    <input type="password" class="input__field" placeholder="Confirm Password">
+                    <input type="password" class="input__field" placeholder="Confirm Password" id="confirmPasswordInput">
                     <i class="bx bx-lock"></i>
+                    <div id="confirmPasswordError" class="error"></div>
+
                 </div>
 
                 <div class="input__box">
                     <input type="date" class="input__field" placeholder="Birth Date" id="date" value="">
                     <i class='bx bx-calendar-alt'  id="calendar-icon"></i>
-
+                    <div id="BirthDateError" class="error"></div>
                 </div>
 
-                <div class="input__box">
-                    <input type="submit" class="submit" value="Register">
+                <div class="button">
+                    <input type="submit" class="submit" value="Register" id="registerForm">
                 </div>
 
                 <div class="remember__terms">

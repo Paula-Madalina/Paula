@@ -1,38 +1,67 @@
-// import { validateFirstName } from "./style.js";
+
+import { validateFirstName, validateLastName, validateEmail, validatePassword, validateConfirmPassword, validateBirthDate, validateFullName, registerValidation } from "./validations.js";
 
 
-let b = document.querySelector("#registerBtn");
-let x = document.querySelector("#login");
-let y = document.querySelector("#register");
-let a = document.querySelector("#loginBtn");
+document.getElementById("registerBtn").addEventListener('click',registerPage);
+document.getElementById("sign_up").addEventListener('click',registerPage);
+document.getElementById("loginBtn").addEventListener('click',loginPage);
+document.getElementById("login_btn").addEventListener('click',loginPage);
+document.getElementById("burgerMenu").addEventListener('click',burgerMenu);
 
-function login() {
-    x.style.left = "4px";
-    y.style.right = "-520px";
-    a.className +=" active__btn";
-    b.className = "btn__header";
+$(document).ready(function() {
+    // Atașează evenimentul de click pe iconiță
+    $('#calendar-icon').click(function() {
+        $('#date').datepicker('show'); // Deschide calendarul asociat input-ului de tip date
+    });
+    
+    // Initializează datepicker-ul
+    $('#date').datepicker({
+        dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        changeYear: true,
+        yearRange: "-100:+0", // de la acum până cu 100 de ani în urmă
+    });
+   
+});
 
-    x.style.opacity = 1;
-    y.style.ropacity = 0;
+let switchRegister = document.querySelector("#registerBtn");
+let switchLogin = document.querySelector("#login");
+let switchToRegister = document.querySelector("#register");
+let switchToLogin = document.querySelector("#loginBtn");
+
+function loginPage() {
+    switchLogin.style.left = "4px";
+    switchToRegister.style.right = "-520px";
+    switchToLogin.className +=" active__btn";
+    switchRegister.className = "btn__header";
+
+    switchLogin.style.opacity = 1;
+    switchToRegister.style.ropacity = 0;
+    let birthDateInput = document.querySelector("#date");
+    console.log(birthDateInput);
+    // birthDateInput.addEventListener("change", test);
 }
 
-function register() {
-    x.style.left = "-510px";
-    y.style.right = "5px";
-    a.className = "btn__header";
-    b.className +=" active__btn";
 
-    x.style.opacity = 0;
-    y.style.ropacity = 1;
+
+
+function registerPage() {
+    switchLogin.style.left = "-510px";
+    switchToRegister.style.right = "0px";
+    switchToLogin.className = "btn__header";
+    switchRegister.className +=" active__btn";
+
+    switchLogin.style.opacity = 0;
+    switchToRegister.style.ropacity = 1;
 }
 
-function myMenuFunction() {
-    var i = document.querySelector("#navMenu");
+function burgerMenu() {
+    var burgerMenu = document.querySelector("#navMenu");
 
-    if(i.className ==="nav__menu") {
-        i.className += " responsive";
+    if(burgerMenu.className ==="nav__menu") {
+        burgerMenu.className += " responsive";
     } else {
-        i.className = "nav__menu"
+        burgerMenu.className = "nav__menu"
     }
 }
 
@@ -45,95 +74,69 @@ function myMenuFunction() {
 
 // ---------------------------FORM VALIDATIONS------------------//
 
+// FIRST NAME DOM
 
 let firstNameInput = document.querySelector("#firstNameInput");
 let firstnameError = document.querySelector("#firstnameError");
-let regexLettersOnly = /^[a-zA-Z\s-]+$/;
-let valid = [];
+
+
+// LAST NAME DOM
 
 let lastNameInput = document.querySelector("#lastNameInput");
-let lastNameError = document.querySelector("#lastnameInput");
+let lastNameError = document.querySelector("#lastNameError");
 
-let regexEmailFormat = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+
+// FULL NAME DOM
+
+let fullNameInput = document.querySelector("#fullNameInput");
+let fullNameError = document.querySelector("#fullNameError");
+
+// EMAIL DOM
+
 let emailInput = document.querySelector("#emailInput");
 let emailError = document.querySelector("#emailError");
 
-let regexPasswordFormat = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).*$/;
+
+// PASSWORD DOM
+
 let passwordInput = document.querySelector("#passwordInput");
 let passwordError = document.querySelector("#passwordError");
 
-function validateFirstName(input, errorElement, valid) {
-    if (input.value.trim().length < 2) {
-        errorElement.textContent = "Min 2 letters";
-        input.style.borderColor = "red";
-        return valid.push(false);
-    } else if (!regexLettersOnly.test(input.value.trim()))  {
-        errorElement.textContent = "Letters Only!";
-        input.style.borderColor = "red";
-        return valid.push(false);
-    } else {
-        errorElement.textContent = "";
-        input.style.borderColor = "rgb(0, 255, 68)";
-        return valid.push(true);
-    }
-}
+
+// CONFIRM PASSWORD DOM
+
+let confirmPasswordInput = document.querySelector("#confirmPasswordInput");
+let confirmPasswordError = document.querySelector("#confirmPasswordError");
 
 
-function validateLastName(input, errorElement, valid) {
-    if(input.value.trim().length < 2) {
-        errorElement.textContent = "Min 2 letters!";
-        input.style.borderColor = "red";
-        return valid.push(false);
-      } else if(!regexLettersOnly.test(input.value.trim())) {
-        errorElement.textContent = "Letters Only!";
-        input.style.borderColor = "red";
-        return valid.push(false); 
-      } else {
-        errorElement.textContent = "";
-        input.style.borderColor = "rgb(0, 255, 68)";
-        return valid.push(true);
-      }
-}
+// BIRTH DATE DOM
+
+let birthDateInput = document.querySelector("#date");
+let birthDateError = document.querySelector("#BirthDateError");
+
+
+// REGEX 
+let regexLettersOnly = /^[a-zA-Z\s-]+$/;
+let regexEmailFormat = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+let regexPasswordFormat = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).*$/;
+
+// VALIDATION
+let valid = [];
+
+
+
 
 validate();
-
 function validate() {
-    firstNameInput.addEventListener("keyup", () => { validateFirstName(firstNameInput, firstnameError, valid) });
-    lastNameInput.addEventListener("keyup", () => { validateLastName(lastNameInput, lastNameError, valid) });
-    emailInput.addEventListener("keyup", () => { validateEmail(emailInput, emailError, valid) });
-    passwordInput.addEventListener("keyup", () => { validateEmail(emailInput, emailError, valid) });
+    valid = [];
+    firstNameInput.addEventListener("keyup", () => { validateFirstName(firstNameInput, firstnameError, regexLettersOnly, valid) });
+    lastNameInput.addEventListener("keyup", () => { validateLastName(lastNameInput, lastNameError,regexLettersOnly, valid) });
+    emailInput.addEventListener("keyup", () => { validateEmail(emailInput, emailError,regexEmailFormat, valid) });
+    passwordInput.addEventListener("keyup", () => { validatePassword(passwordInput, passwordError,regexPasswordFormat, valid) });
+    confirmPasswordInput.addEventListener("keyup", () => { validateConfirmPassword(confirmPasswordInput, confirmPasswordError, valid) });
+    fullNameInput.addEventListener("keyup", () => { validateFullName(fullNameInput, fullNameError, regexLettersOnly, valid)})
+    $('#date').on("change",()=>{validateBirthDate(birthDateInput,birthDateError)});
+    document.getElementById("registerForm").addEventListener('click', () => { registerValidation(valid)});
 
 }
 
-function validateEmail(input, errorElement, valid) {
-    if(!regexEmailFormat.test(input.value.trim())) {
-        errorElement.textContent = "Invalid Email Format";
-        input.style.borderColor = "red";
-      return valid.push(false);
-    } else {
-        errorElement.textContent = "";
-      input.style.borderColor = "rgb(0, 255, 68)";
-      return valid.push(true);
-    }
-  }
-
-  function validatePasswordValue(regexPasswordFormat, passwordLabel, passwordInput, errorPasswordMessage, validatePasswordInput, valid) {
-    if(!regexPasswordFormat.test(passwordInput.value.trim())) {
-      passwordLabel.style.color = "red";
-      errorPasswordMessage.textContent = "Need: letters, numbers, special characters";
-      errorPasswordMessage.style.color = "red";
-      validatePasswordInput.style.borderColor = "red";
-      return valid.push(false);
-    } else if (passwordInput.value.trim().length < 6) {
-      passwordLabel.style.color = "red";
-      errorPasswordMessage.textContent = "Password too short!";
-      errorPasswordMessage.style.color = "red";
-      validatePasswordInput.style.borderColor = "red";
-      return valid.push(false);
-    } else {
-      passwordLabel.style.color = "rgb(0, 255, 68)";
-      errorPasswordMessage.textContent = "";
-      validatePasswordInput.style.borderColor = "rgb(0, 255, 68)";
-      return valid.push(true);
-    }
-  }
