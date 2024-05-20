@@ -1,0 +1,548 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background Wrapper */
+.background-wrapper {
+    position: fixed; /* Element is positioned fixed in relation to the viewport */
+    top: 0; /* Positions the element at the top of the viewport */
+    left: 0; /* Positions the element at the left of the viewport */
+    width: 100%; /* Sets the width of the element to 100% of the viewport width */
+    height: 100vh; /* Sets the height of the element to 100% of the viewport height */
+    background-image: url(../images/spacejoy-KSfe2Z4REEM-unsplash\ \(2\).jpg); /* Background image */
+    background-position: center; /* Background image is positioned at the center of the element */
+    background-size: 100% 100%; /* Background image stretches to fill the entire element */
+    background-repeat: no-repeat; /* Background image does not repeat */
+    filter: blur(10px); /* Applies a blur effect to the background image */
+    z-index: -1; /* Element is placed behind other elements */
+}
+
+/* Navigation */
+.nav {
+    position: fixed; /* Element is positioned fixed in relation to the viewport */
+    top: 0; /* Positions the element at the top of the viewport */
+    display: flex; /* Sets the element to display as a flex container */
+    justify-content: space-around; /* Items are evenly distributed in the available space */
+    align-items: center; /* Items are vertically aligned in the center */
+    width: 100%; /* Sets the width of the element to 100% of the viewport width */
+    height: 70px; /* Height of the element */
+    background: linear-gradient(rgb(0, 0, 0), rgba(33,53,51,255)); /* Linear gradient as background */
+    z-index: 100; /* Element is placed above other elements */
+    padding: 25px 11%; /* Padding of the element */
+}
+
+.nav__logo h2 {
+    color: rgba(238,239,233,255); /* Text color */
+    font-size: 25px; /* Font size */
+    font-weight: 700; /* Font weight */
+}
+/* Navigation Menu */
+.nav__menu ul {
+    display: flex; /* Displays the list items horizontally */
+}
+
+.nav__menu ul li {
+    list-style-type: none; /* Removes default list item bullets */
+}
+
+.nav__menu ul li .link {
+    text-decoration: none; /* Removes underline from links */
+    font-weight: 500; /* Font weight */
+    color: rgba(238,239,233,255); /* Text color */
+    padding-bottom: 10px; /* Bottom padding */
+    margin: 0 25px; /* Margin between list items */
+}
+
+/* Hover effect for links */
+.link:hover {
+    border-bottom: 3px solid rgba(197,194,189,255); /* Adds bottom border on hover */
+}
+
+/* Header Button */
+.btn__header {
+    width: 130px; /* Width of the button */
+    height: 40px; /* Height of the button */
+    font-weight: 500; /* Font weight */
+    background: rgba(255, 255, 255, 0.1); /* Background color with transparency */
+    border-radius: 30px; /* Border radius */
+    cursor: pointer; /* Cursor style */
+    transition: .5s ease; /* Transition effect for smooth hover */
+}
+
+.btn__header a {
+    text-decoration: none; /* Removes underline from links */
+    color: #000; /* Text color */
+}
+
+/* Hover effect for header button */
+.btn__header:hover {
+    background: rgba(255, 255, 255, 0.4); /* Background color with increased transparency */
+    border: 2px solid #000; /* Border on hover */
+}
+
+/* Active state for header button */
+.btn__header.active__btn {
+    background: rgba(255, 255, 255, 0.7); /* Background color for active state */
+    margin-left: 15px; /* Left margin for active button */
+}
+
+/* Hover effect for active header button */
+.btn__header.active__btn:hover {
+    background: rgba(255, 255, 255, 0.3); /* Background color with increased transparency on hover */
+}
+
+/* Navigation menu button */
+.nav__menu__btn {
+    display: none; /* Hides the navigation menu button */
+}
+
+
+/* Table Styles */
+table {
+    border: 2px solid rgb(204, 204, 204); /* Border for the table */
+    /* background: transparent; */
+    /* backdrop-filter: blur(20px); */
+    background-color: rgba(0, 0, 0, .6); /* Background color with transparency */
+    width: auto; /* Width of the table */
+    border-collapse: collapse; /* Collapse borders between table cells */
+    border-spacing: 0; /* Spacing between table borders */
+    /* margin-bottom: 20px; */
+    /* margin-top: 50px; */
+    margin: 88px auto 0px auto; /* Margin for positioning the table */
+}
+
+/* Table Cell Styles */
+th, td {
+    padding: 10px 10px; /* Padding for table cells */
+    text-align: left; /* Alignment of text inside cells */
+    color: #fff; /* Text color */
+    border-bottom: 1px solid #bababa; /* Bottom border for cells */
+}
+
+th {
+    /* margin-left: 10px; */
+    background-color: rgba(238,239,233,255); /* Background color for table header */
+    color: #000; /* Text color for table header */
+}
+
+/* Table Input Styles */
+.table__input {
+    /* margin-bottom: 5px; */
+    width: 100%; /* Full width for table inputs */
+    padding: 8px; /* Padding for inputs */
+    box-sizing: border-box; /* Include padding in input width calculation */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+}
+
+/* Toggle Button Styles */
+.toggle-button {
+    background-color: #ddd; /* Background color for toggle button */
+    border: 1px solid #777; /* Border for toggle button */
+    color: #555; /* Text color for toggle button */
+    padding: 8px 16px; /* Padding for toggle button */
+    font-size: 14px; /* Font size for toggle button */
+    cursor: pointer; /* Cursor style */
+    border-radius: 20px; /* Border radius */
+}
+
+/* Toggle Button Styles for YES state */
+.toggle-button.YES {
+    background-color: #4CAF50; /* Background color for YES state */
+    color: white; /* Text color for YES state */
+}
+
+/* Toggle Button Styles for NO state */
+.toggle-button.NO {
+    background-color: #f44336; /* Background color for NO state */
+    color: white; /* Text color for NO state */
+}
+
+/* Input Styles for Date Type */
+input[type="date"] {
+    width: 100%; /* Full width for date input */
+    padding: 8px; /* Padding for date input */
+    box-sizing: border-box; /* Include padding in input width calculation */
+}
+
+/* Styles for Webkit Date Time Edit Text */
+input[type="date"]::-webkit-datetime-edit-text {
+    font-size: 16px !important; /* Adjust text size as preferred */
+}
+
+/* Styles for Add Flat Element */
+.add__flat {
+    display: none; /* Hide the add flat element by default */
+    width: 40%; /* Width of the add flat element */
+    border: 1px solid white; /* Border for the add flat element */
+}
+
+/* Styles for Edit Button */
+.edit-button {
+    width: 100%;
+    display: block; /* Ensure the button behaves as a block element */
+    margin: 0 auto; /* Center the button horizontally */
+    padding: 5px 10px; /* Add space between text and button edge */
+    background-color: #4CAF50; /* Background color for the button */
+    color: white; /* Text color for the button */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add a small arc to button corners */
+    cursor: pointer; /* Show cursor as pointer for interaction */
+}
+table > tr{
+    width:50%
+}
+
+/* Styles for Table Controls */
+.table__controls {
+    display: flex; /* Arrange controls in a flex container */
+    justify-content: center; /* Center align controls horizontally */
+    align-items: center; /* Center align controls vertically */
+    margin-top: 20px; /* Margin at the top of the controls */
+    gap: 15px; /* Spacing between controls */
+}
+
+/* Styles for Sort Filter */
+.sort__filter {
+    padding: 8px 30px; /* Padding for the sort filter */
+    border-radius: 30px; /* Border radius for the sort filter */
+}
+
+/* Styles for Sort Modal */
+.modal__sort {
+    display: none; /* Hide the sort modal by default */
+    position: fixed; /* Positioning context for modal */
+    z-index: 1; /* Set z-index to ensure modal appears on top */
+    left: 0; /* Position from left edge of the viewport */
+    top: 0; /* Position from top edge of the viewport */
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
+}
+
+/* Styles for Sort Modal Content */
+.modal__content__sort {
+    background-color: #396847; /* Background color for sort modal content */
+    border-radius: 20px; /* Border radius for sort modal content */
+    margin: 15% auto; /* Margin for centering the content vertically */
+    padding: 20px; /* Padding for modal content */
+    border: 2px solid #888; /* Border for modal content */
+    width: 30%; /* Width of modal content */
+    text-align: center; /* Center align text inside modal content */
+}
+
+/* Styles for Filter Modal */
+.modal__filter {
+    display: none; /* Hide the filter modal by default */
+    position: fixed; /* Positioning context for modal */
+    z-index: 1; /* Set z-index to ensure modal appears on top */
+    left: 0; /* Position from left edge of the viewport */
+    top: 0; /* Position from top edge of the viewport */
+    width: 100%; /* Full width of the viewport */
+    height: 100%; /* Full height of the viewport */
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Background color with transparency */
+}
+
+/* Styles for Filter Modal Content */
+.modal__content__filter {
+    background-color: #396847; /* Background color for filter modal content */
+    border-radius: 20px; /* Border radius for filter modal content */
+    margin: 15% auto; /* Margin for centering the content vertically */
+    padding: 20px; /* Padding for modal content */
+    border: 2px solid #888; /* Border for modal content */
+    width: 30%; /* Width of modal content */
+    text-align: center; /* Center align text inside modal content */
+}
+
+/* Styles for Sort Arrow */
+.sort-arrow {
+    cursor: pointer; /* Show cursor as pointer for sort arrow */
+}
+
+/* Styles for Close Buttons */
+.close__filter,
+.close__sort {
+    color: #aaa; /* Text color for close buttons */
+    float: right; /* Float buttons to the right */
+    font-size: 28px; /* Font size for close buttons */
+    font-weight: bold; /* Bold font weight for close buttons */
+    margin-top: -250px; /* Margin for positioning close buttons */
+    margin-bottom: 10px; /* Margin at the bottom of close buttons */
+}
+
+
+/* Hover and Focus Styles for Close Buttons */
+
+.close__filter:hover,
+.close__sort:hover,
+.close__filter:focus,
+.close__sort:focus {
+    color: black; /* Text color on hover or focus */
+    text-decoration: none; /* Remove underline on hover or focus */
+    cursor: pointer; /* Show cursor as pointer */
+}
+
+/* Styles for Apply Button */
+.apply__button {
+    background-color: #4CAF50; /* Background color for apply button */
+    border: none; /* Remove button border */
+    color: white; /* Text color for apply button */
+    padding: 10px 20px; /* Padding for apply button */
+    text-align: center; /* Center align text inside button */
+    text-decoration: none; /* Remove any text decoration */
+    display: inline-block; /* Make button display inline */
+    font-size: 16px; /* Font size for apply button */
+    margin: 4px 2px; /* Margin around the button */
+    cursor: pointer; /* Show cursor as pointer */
+    border-radius: 4px; /* Border radius for apply button */
+}
+
+/* Hover Style for Apply Button */
+.apply__button:hover {
+    background-color: #45a049; /* Background color on hover */
+}
+
+
+.viewAllFlats {
+    display: none; /* Initially hides the element */
+}
+
+.form-control {
+    display: inline-block; /* Renders the element as an inline block */
+    background: gray; /* Sets the background color to gray */
+    color: #000000; /* Sets the text color to black */
+    padding: 10px; /* Adds padding around the element */
+    border-radius: 20px; /* Rounds the corners of the element */
+}
+
+.favorite-icon {
+    display: inline-block; /* Renders the element as an inline block */
+    width: 50px; /* Sets the width of the element */
+    height: 20px; /* Sets the height of the element */
+    text-align: center; /* Aligns the text to the center */
+    cursor: pointer; /* Displays cursor as pointer on hover */
+}
+
+.favorite-icon.selected {
+    background-color: red; /* Sets the background color to red */
+    border-color: red; /* Sets the border color to red */
+    color: white; /* Sets the text color to white */
+}
+
+.save__button {
+    width: 100%; /* Sets the width of the button to 100% */
+    background-color: #4CAF50; /* Sets the background color */
+    color: white; /* Sets the text color to white */
+    padding: 10px 20px; /* Adds padding to the button */
+    border: none; /* Removes border */
+    border-radius: 4px; /* Rounds the corners of the button */
+    cursor: pointer; /* Displays cursor as pointer on hover */
+}
+
+.save__button:hover {
+    background-color: #45a049; /* Changes background color on hover */
+}
+
+/* Styles for modal */
+.modal {
+    display: none; /* Initially hides the modal */
+    position: fixed; /* Positions the modal relative to the viewport */
+    z-index: 1; /* Sets the stack order of the modal */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Sets the background color with transparency */
+}
+
+.modal-content {
+    background-color: #396847; /* Sets the background color of modal content */
+    border-radius: 20px; /* Rounds the corners of modal content */
+    margin: 15% auto; /* Sets margin for centering the modal vertically */
+    padding: 20px; /* Adds padding inside the modal content */
+    border: 2px solid #888; /* Sets border around modal content */
+    width: 30%; /* Sets the width of the modal content */
+    text-align: center; /* Aligns the content to the center */
+}
+
+.close {
+    color: #aaa; /* Sets color of close button */
+    float: right; /* Floats the close button to the right */
+    font-size: 28px; /* Sets font size of close button */
+    font-weight: bold; /* Makes close button text bold */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Changes color of close button on hover/focus */
+    text-decoration: none; /* Removes underline on hover/focus */
+    cursor: pointer; /* Displays cursor as pointer on hover/focus */
+}
+
+.favorites-table {
+    /* margin-top: 100px; Sets top margin for the table */
+    margin-left: 300px; /* Sets left margin for the table */
+}
+
+.modal__buttons {
+    margin-top: 10px; /* Sets top margin for the modal buttons */
+    padding: 10px 15px; /* Adds padding to the modal buttons */
+}
+
+.confirm__button {
+    margin-right: 10px; /* Sets right margin for the confirm button */
+    background-color: greenyellow; /* Sets background color for the confirm button */
+    border: 1px solid black; /* Sets border for the confirm button */
+}
+
+.cancel__button {
+    background-color: red; /* Sets background color for the cancel button */
+    border: 1px solid black; /* Sets border for the cancel button */
+}
+
+.container {
+    width: 100%; /* Sets width of the container to 100% */
+    display: flex; /* Displays container as a flex container */
+    flex-direction: row; /* Arranges children elements in a row */
+}
+
+.left__side {
+    margin-top: 170px; /* Sets top margin */
+    color: rgba(4,5,7,255); /* Sets text color */
+    width: 50%; /* Sets width to 50% of the parent container */
+    height: 50vh; /* Sets height to 50% of the viewport height */
+    justify-content: center; /* Horizontally centers content */
+    align-items: center; /* Vertically centers content */
+    padding: 200px 50px; /* Sets padding */
+    background: transparent; /* Sets background color to transparent */
+    backdrop-filter: blur(10px); /* Applies blur effect to the background */
+    display: flex; /* Displays as flex container */
+    flex-direction: column; /* Arranges children in column */
+    gap: 20px; /* Sets gap between children */
+}
+
+.right__side {
+    margin-top: 170px; /* Sets top margin */
+    width: 50%; /* Sets width to 50% of the parent container */
+    background: url(../images/spacejoy-KSfe2Z4REEM-unsplash\ \(2\).jpg); /* Sets background image */
+    background-position: center; /* Sets background position */
+    background-size: cover; /* Sets background size */
+}
+
+.welcome__title {
+    font-family: "Playfair Display", serif; /* Sets font family */
+    font-size: 70px; /* Sets font size */
+    margin: 300px 100px 0 100px; /* Sets margins */
+    color: rgba(238,239,233,255); /* Sets text color */
+}
+
+.hashtag {
+    background-color: rgba(178,169,254,255); /* Sets background color */
+    width: 180px; /* Sets width */
+    color: rgba(39,33,87,255); /* Sets text color */
+    padding: 10px; /* Sets padding */
+    border-radius: 20px; /* Sets border radius */
+    text-align: start; /* Aligns text to start */
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Sets font family */
+}
+
+.hero__button {
+    background-color: rgba(178,169,254,255); /* Sets background color */
+    width: 180px; /* Sets width */
+    display: flex; /* Displays as flex container */
+    align-items: center; /* Vertically centers content */
+    justify-content: space-between; /* Distributes space between flex items */
+    color: #000000; /* Sets text color */
+    border: none; /* Removes border */
+    padding: 20px 5px 20px 10px; /* Sets padding */
+    border-radius: 20px; /* Sets border radius */
+    font-size: 16px; /* Sets font size */
+    cursor: pointer; /* Sets cursor to pointer on hover */
+    overflow: hidden; /* Hides overflowing content */
+    position: relative; /* Sets position to relative */
+}
+
+.hero__button::after {
+    content: ''; /* Adds pseudo-element content */
+    position: absolute; /* Sets position to absolute */
+    top: 0; /* Sets top position */
+    left: 0; /* Sets left position */
+    width: 100%; /* Sets width to 100% */
+    height: 100%; /* Sets height to 100% */
+    background-image: linear-gradient(to right, rgba(178,169,254,255), rgb(0,0,0)); /* Sets background gradient */
+    transition: transform 1s; /* Sets transition duration */
+    transform: translateX(-100%); /* Moves element out of view */
+}
+
+.hero__button:hover::after {
+    transform: translateX(100%); /* Moves element into view on hover */
+}
+
+.bx-right-arrow-alt:before {
+    background-color: rgba(19,7,45,255); /* Sets background color */
+    border-radius: 20px; /* Sets border radius */
+    padding: 7px; /* Sets padding */
+    content: "\ebe6"; /* Adds content */
+    font-size: 20px; /* Sets font size */
+    color: white; /* Sets text color */
+}
+
+.user-profile-table-container {
+    text-align: center; /* Aligns content to center */
+    width: 100%; /* Sets width to 100% */
+}
+
+.user-profile-table {
+    width: 100%; /* Sets width to 100% */
+    margin-left: auto; /* Centers table horizontally */
+    margin-right: auto; /* Centers table horizontally */
+    border-collapse: collapse; /* Collapses table borders */
+    width: 40%; /* Sets width to 40% */
+    margin-top: 200px;
+}
+
+.user-profile-table th, .user-profile-table td {
+    padding: 8px; /* Sets padding */
+    border: 1px solid #ddd; /* Sets border */
+    text-align: left; /* Aligns text to left */
+}
+
+.user-profile-table th {
+    background-color: #f2f2f2; /* Sets background color */
+}
+
+.remove__btn {
+    background-color: red;
+    color: white;
+    padding: 7px;
+    border-radius: 7px;
+    border: navajowhite;
+    cursor: pointer;
+}
+
+.remove__btn:hover {
+    background-color: black;
+    color: rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.delete-button{
+    background-color: red;
+    color: white;
+    padding: 7px;
+    border-radius: 7px;
+    border: navajowhite;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: black;
+    color: rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+}

@@ -1,0 +1,190 @@
+
+
+/* Stiluri generale */
+@media screen and (max-width: 1175px) {
+
+    .form__register{
+        padding: 0 30px;
+
+    }
+    .logreg__box .form__box {
+        /* backdrop-filter: none; */
+        right: 0;
+        width: auto;
+        padding: 0 30px;
+
+    }
+
+    .input__box input {
+        width: auto;
+
+    }
+
+    /* .container .content {
+        display: block;
+    } */
+
+    /* .container {
+        background: transparent;
+        backdrop-filter: none;
+
+    } */
+
+    /* .background {
+        background-image: url(../images/background.jpg);
+        filter: none;
+
+    } */
+
+    .form__box .input__box {
+        width: auto;
+        margin: 30px 0px;
+    }
+
+    .container {
+        /* display: none; */
+        background-image: url(../images/background.jpg);
+        background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    }
+
+    .form__box .remember__forgot {
+        /* flex-direction: column; */
+        gap: 15px;
+        padding: 25px 20px;
+        /* margin: 25px 20px; */
+    }
+
+    .container .logreg__box {
+        position: relative;
+        /* margin-right: 20%; */
+        /* text-align: center; */
+        width: 100%;
+        /* padding: 0 30px; */
+    }
+
+    /* .btn {
+        width: 90%;
+        height: 40px;
+    } */
+
+
+
+  
+}
+
+
+
+
+@media screen and (max-width: 827px) {
+
+    .logreg__box .form__box.register {
+height: auto;
+position: fixed;
+right: 0;
+    }
+
+    .container {
+        background-image: none;
+    }
+    .container .content {
+        /* display: none; */
+        padding: 80px 0;
+    }
+
+    .text__responsive {
+        display: block;
+    }
+
+    .background {
+        filter: none;
+    }
+
+    .container .logreg__box {
+        position: relative;
+        text-align: center;
+        width: 90%;
+
+    }
+
+    .form__box .input__box {
+        /* margin-bottom: 30px; */
+        margin: 30px 0px;
+    }
+
+    .logreg__box .form__box.login {
+        border-radius:15px;
+        border: 2px solid rgba(219,51,94,255)
+
+    }
+    .text__responsive {
+        display: block;
+    }
+
+    .burger-menu > .burger {
+        display: block;
+        width:25px;
+        height: 2px;
+        background-color: white;
+        margin: 5px;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+  
+
+
+
+}
+
+
+@media screen and (max-width: 790px) {
+    .container .content {
+        /* display: none; */
+        padding: 80px 0;
+        /* background-image: url(../images/background.jpg);
+        background-size: cover;
+    background-position: center; */
+    }
+
+ 
+
+    .logo {
+        display: none;
+    }
+
+    .text__sci {
+        display: none;
+    }
+
+
+    .logo__header {
+        display:block;
+        color: #fff;
+        margin-right: 70px;
+    }
+
+    .search__bar {
+        display: none;
+    }
+    .logreg__box .form__box.register {
+        height: auto;
+        position: absolute;
+        /* right: 0; */
+            }
+
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .container .content {
+        display: block;
+    }
+    .logo__header {
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: url(../images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    transform-style: preserve-3d;
+    animation: rotateBg 10s linear infinite; 
+   }
+  
+     /* @keyframes rotateBg {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      100% { transform: rotateX(360deg) rotateY(360deg); }
+    }  */
+  
+  .register__box {
+    position: relative;
+    width: 350px;
+    height: auto;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+  }
+  
+  .register__title {
+    font-size: 2em;
+    color: #000;
+    text-align: center;
+  }
+  
+  .input__box {
+    position: relative;
+    width: 310px;
+    margin: 10px 20px;
+    border-bottom: 2px solid #000;
+  }
+  
+  .input__email {
+    border-bottom: 2px solid #000;
+  }
+  
+  .input__box .input__name {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #000;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  /* .input__box .input__field:focus ~ .input__name,
+  .input__box .input__field:valid ~ .input__name {
+    top: -3px;
+  } */
+  
+  /* 
+  .input__box {
+    position: relative;
+  } */
+  
+  .input__field:focus ~ .input__name,
+  .input__field:valid ~ .input__name,
+  .input__field:not(:placeholder-shown) ~ .input__name {
+    top: 0;
+    /* font-size: 12px; */
+    /* color: rgb(131, 190, 12); */
+  }
+  
+  .placeholder {
+    color: #860000; /* Culoare implicită a placeholder-ului */
+  }
+  
+  .placeholder-error {
+    color: red; /* Culoare pentru placeholder atunci când este în stare de eroare */
+  }
+  
+  .input__container {
+    display: flex;
+    gap: 30px;
+    width: 350px;
+    color: rgb(131, 190, 12);
+  }
+  
+  .input__box .input__field {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #000;
+  }
+  
+  .input__box .icon {
+    position: absolute;
+    right: 10px;
+    color: #000;
+    font-size: 1.2em;
+    line-height: 57px;
+  }
+  
+  /* Stilizare pentru containerul numelor */
+  .name__container {
+    display: flex;
+    gap: 30px;
+    width: 310px;
+    margin-left: 20px;
+  }
+  
+  /* Stilizare pentru câmpul "First Name" */
+  .first__name {
+    width: calc(50% - 15px); /* Adaugăm o mică margine între div-uri */
+    position: relative;
+    border-bottom: 2px solid black;
+  }
+  
+  /* Stilizare pentru câmpul "Last Name" */
+  .last__name {
+    width: calc(50% - 15px); /* Adaugăm o mică margine între div-uri */
+    position: relative;
+    border-bottom: 2px solid black;
+  }
+  
+  /* Stilizare pentru label-urile "First Name" și "Last Name" */
+  .first__name__label,
+  .last__name__label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #000;
+    pointer-events: none;
+    transition: 0.5s;
+    margin-top: -20px;
+  }
+  
+  /* Stilizare pentru input-urile "First Name" și "Last Name" */
+  .first__last__name__input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #000;
+  }
+  
+  /* Stilizare pentru icon-ul din câmpurile de introducere */
+  .icon {
+    position: absolute;
+    right: 8px;
+    color: #000;
+    font-size: 1.2em;
+    line-height: 57px;
+  }
+  
+  /* Stilizare pentru câmpul "First Name" când este în focus sau valid */
+  /* .first__name .first__last__name__input:focus ~ .first__name__label,
+  .first__name .first__last__name__input:valid ~ .first__name__label {
+    top: -5px;
+  } */
+  
+  /* Stilizare pentru câmpul "Last Name" când este în focus sau valid */
+  /* .last__name .first__last__name__input:focus ~ .last__name__label,
+  .last__name .first__last__name__input:valid ~ .last__name__label {
+    top: -3px;
+  } */
+  
+  .input__field[type="date"]::-webkit-calendar-picker-indicator {
+    transform: scale(1.3); /* Mărește dimensiunea iconiței */
+    margin-right: 7px;
+  }
+  
+  input[type="date"]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+  }
+  input[type="date"]:focus::-webkit-datetime-edit {
+    color: black !important;
+  }
+  
+  .register__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 310px;
+    height: 40px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 20px;
+    margin-bottom: 7px;
+  }
+
+  .register__button:hover {
+    background-color: rgba(174,181,187,255);
+  }
+  
+  .login__link__container {
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .login__link__container p {
+    color: #000;
+  }
+  
+  .login__link {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .login__link:hover {
+    text-decoration: underline;
+    color: rgba(174,181,187,255);
+  }
+
+  .error__message {
+    font-size: 13px;
+    text-align: center;
+
+  }
+
+
+  /* .error-border {
+    border-bottom: 2px solid rgb(255, 0, 0);
+  } */
+
+  /* .succeed-border {
+    border-bottom: 2px solid rgb(0, 255, 47);
+  } */
+  
+
+
+  @media (max-width: 360px) {
+    .register__box {
+      width: 100%;
+      height: 100vh;
+      border: none;
+      border-radius: 0;
+    }
+  
+    .input__box {
+      width: 290px;
+    }
+  }
+  

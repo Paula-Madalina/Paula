@@ -1,7 +1,24 @@
+toastr.options = {
+  "closeButton": false,
+  "debug": true,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-center",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
 let validationState = {
   firstName: false,
   lastName: false,
-  // fullName: false,
   email: false,
   password: false,
   confirmPassword: false,
@@ -9,18 +26,20 @@ let validationState = {
 };
 
 function updateValidationState(field, isValid) {
+  // Updates the validation state for a specific field
   validationState[field] = isValid;
 }
 
-// Funcție pentru a verifica dacă toate câmpurile sunt validate
+// Function to check if all fields are valid
 function isAllFieldsValid() {
-  // Dacă este afișată vizualizarea pentru dispozitive mobile, consideră că inputurile de nume sunt validate automat
+  // If the mobile view is displayed, consider name inputs automatically validated
   if (isMobileView) {
+        // Exclude the "fullName" field as it's specific to mobile devices
     return Object.entries(validationState)
       .filter(([field, _]) => field !== "fullName") // Exclude câmpul "fullName" deoarece este specific dispozitivelor mobile
       .every(([_, isValid]) => isValid === true);
   } else {
-    // Altfel, verifică toate câmpurile
+    // Otherwise, check all fields
     return Object.values(validationState).every(value => value === true);
   }
 }
@@ -68,29 +87,6 @@ export function validateLastName(input, errorElement, regexLettersOnly) {
     updateValidationState("lastName", true);
   }
 }
-
-
-// FULLNAME VALIDATION
-
-// export function validateFullName(input, errorElement, regexLettersOnly) {
-//   if (input.value.trim() == "") {
-//     errorElement.textContent = "Minim 2 caractere";
-//     input.style.borderColor = "red";
-//     updateValidationState("fullName", false);
-//   } else if (input.value.trim().length < 2) {
-//     errorElement.textContent = "Minim 2 caractere";
-//     input.style.borderColor = "red";
-//     updateValidationState("fullName", false);
-//   } else if (!regexLettersOnly.test(input.value.trim())) {
-//     errorElement.textContent = "Doar litere!";
-//     input.style.borderColor = "red";
-//     updateValidationState("fullName", false);
-//   } else {
-//     errorElement.textContent = "";
-//     input.style.borderColor = "rgb(0, 255, 68)";
-//     updateValidationState("fullName", true);
-//   }
-// }
 
 
 
@@ -184,16 +180,97 @@ export function validateBirthDate(input, errorElement) {
 
 
 
+// Function to handle registration validation
 export function registerValidation() {
   console.log(validationState);
 
   if (isAllFieldsValid()) {
-    alert("Ok");
+    saveToLocalStorage();
+    switchLogin.style.left = "4px";
+    switchToRegister.style.right = "-520px";
+    switchToLogin.className += " active__btn";
+    switchRegister.className = "btn__header";
+
+    let birthDateInput = document.querySelector("#date");
+    console.log(birthDateInput);
   } else {
-    alert("ATENȚIE! Unele câmpuri nu sunt completate corect.");
+    toastr["error"]("Complete the fields!");
+
   }
 }
 
-// Adaugă o nouă variabilă globală pentru a verifica dacă sunt afișate inputurile de nume pe dispozitivele mobile
+
+// Add a new global variable to check if name inputs are displayed on mobile devices
 let isMobileView = false;
 
+// Exported variables
+export let switchRegister = document.querySelector("#registerBtn");
+export let switchLogin = document.querySelector("#login");
+export let switchToRegister = document.querySelector("#register");
+export let switchToLogin = document.querySelector("#loginBtn");
+
+export let myVariable = "vfxcds";
+
+// Event listeners
+document.getElementById("registerBtn").addEventListener('click',registerPage);
+document.getElementById("sign_up").addEventListener('click',registerPage);
+document.getElementById("loginBtn").addEventListener('click',loginPage);
+document.getElementById("login_btn").addEventListener('click',loginPage);
+
+let birthDateInput = document.querySelector("#date");
+
+
+// Function to handle navigation to login page
+function loginPage() {
+  switchLogin.style.left = "4px";
+  switchToRegister.style.right = "-520px";
+  switchToLogin.className +=" active__btn";
+  switchRegister.className = "btn__header";
+
+  switchLogin.style.opacity = 1;
+
+}
+
+
+
+// Function to handle navigation to registration page
+function registerPage() {
+  switchLogin.style.left = "-510px";
+  switchToRegister.style.right = "0px";
+  switchToLogin.className = "btn__header";
+  switchRegister.className +=" active__btn";
+
+  // switchLogin.style.opacity = 0;
+  switchToRegister.style.ropacity = 1;
+}
+
+
+// Function to save user data to local storage
+function saveToLocalStorage() {
+  const formData = {
+    firstName: firstNameInput.value.trim(),
+    lastName: lastNameInput.value.trim(),
+    email: emailInput.value.trim(),
+    password: passwordInput.value.trim(),
+    birthDate: birthDateInput.value.trim()
+  };
+
+    // Check if there is already a user with the same email address
+  let users = JSON.parse(localStorage.getItem("Users")) || [];
+  let existingUser = users.find(user => user.email === formData.email);
+
+  if (existingUser) {
+    toastr["error"]("A user with this email already exists");
+
+    updateValidationState("email", false);
+    validateEmail();
+  
+  }
+
+  // Add the new user to the list of users
+  users.push(formData);
+
+  // Update the list of users in local storage
+  localStorage.setItem("Users", JSON.stringify(users));
+
+}

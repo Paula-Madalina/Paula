@@ -1,0 +1,649 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    /* font-family: "Poppins", sans-serif; */
+}
+
+
+body {
+    background: #020410;
+}
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white ;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    /* line-height: 100px; */
+    background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
+    z-index: 100;
+    padding: 25px 12.5%;
+}
+
+.nav__logo h2 {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+.nav__menu ul {
+    display: flex;
+}
+
+.nav__menu ul li {
+    list-style-type: none;
+}
+
+.nav__menu ul li .link {
+    text-decoration: none;
+    font-weight: 500;
+    color: #000000;
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+
+
+.link:hover {
+    border-bottom: 3px solid #000000;
+}
+
+.btn__header {
+    width: 130px;
+    height: 40px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .5s ease;
+    
+}
+
+.btn__header a{
+    text-decoration: none;
+    color: #000;
+}
+
+.btn__header:hover {
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid #000;
+
+}
+
+
+.btn__header.active__btn {
+    background: rgba(255, 255, 255, 0.7);
+    margin-left: 15px;
+
+}
+
+.btn__header.active__btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.nav__menu__btn {
+    display: none;
+}
+
+
+
+
+/* 
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 25px 12.5%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 30px;
+
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    border-radius: 5px;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: .5s;
+}
+
+.navbar a:hover::after {
+    transform: translateY(0);
+    opacity: 1;
+} */
+
+
+
+
+.container {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 570px;
+    background: url(../images/bg-login.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.container .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58%;
+    height: 100%;
+    background: transparent;
+    padding: 80px;
+    color: #e4e4e4;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-size: cover;
+    background-position: left;
+
+}
+
+
+
+
+.container .form__box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.form__box .register__container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #e4e4e4;
+    transition: .5s ease-in-out;
+}
+
+
+.top span {
+    color: #000000;
+    font-size: 15px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.top span a {
+    font-weight: 500;
+    color: #000000;
+    margin-left: 5px;
+    text-decoration: none;
+
+
+}
+
+.top span a:hover {
+    color: blue;
+}
+
+
+header {
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    padding: 5px 0 15px 0;
+}
+
+.two__forms {
+    display: flex;
+    gap: 10px;
+}
+
+.input__box__firstname {
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    /* padding: 0 10px 0 45px; */
+    margin-left: 30px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+
+}
+
+.input__box__lastname {
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    /* padding: 0 10px 0 45px; */
+    margin-right: 30px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+}
+
+.input__box {
+    margin: 0 30px;
+}
+
+.input__field{
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    color: #000000;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: .2s ease;
+}
+
+.input__field:hover{
+    border: 1px solid black;
+}
+
+.input__field:focus{
+    transition: .3s ease-in-out;
+    border: 2px solid blue;
+}
+
+
+
+::-webkit-input-placeholder {
+    color: rgb(94, 94, 94);
+}
+
+.ui-datepicker {
+    display: none;
+}
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* width: calc(100% - 2px);  */
+    height: 50px;
+    padding: 0 5px;
+    /* border: 1px solid #ccc; */
+    border-radius: 30px;
+    padding: 10px 10px 10px 45px;
+
+}
+
+/* Stilizează placeholder-ul */
+input[type="date"]::before {
+    content: attr(placeholder);
+    color: #575656;
+}
+
+/* Ascunde săgeata de selectare implicită */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    margin-bottom: 30px ;
+}
+
+.input__box__firstname i {
+    position: relative;
+    top: -35px;
+    left: 17px;
+    color: #000;
+}
+.input__box__lastname i {
+position: relative;
+    top: -35px;
+    left: 17px;
+    color: #000;
+
+}
+.input__box i {
+    position: relative;
+    top: -35px;
+    left: 17px;
+    color: #000;
+
+    
+}
+
+
+#calendar-icon {
+    cursor: pointer;
+}
+
+.submit {
+    /* margin-top: 20px; */
+    font-size: 17px;
+    font-weight: 500;
+    color: #ffffff;
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background: rgba(32, 21, 114, 1);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.submit:hover {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 5px 7px 1px rgba(255, 255, 255, 0.2);
+}
+
+.remember__terms {
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    font-size: 15px;
+    margin: 10px 35px;
+}
+
+.remember__terms .remember {
+    display: flex;
+    gap: 5px;
+}
+
+.remember__terms .terms label a {
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+}
+
+.remember__terms .terms label a:hover {
+    text-decoration: underline;
+    color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.content .logo {
+    font-size: 30px;
+}
+
+
+.text__sci h2 {
+    font-size: 40px;
+    line-height: 1;
+}
+
+.text__sci h2 span {
+    font-size: 25px;
+}
+
+.text__sci p {
+    font-size: 16px;
+    margin: 20px 0;
+
+}
+
+.social__icons a i {
+    font-size: 22px;
+    color: #e4e4e4;
+    margin-right: 10px;
+    transition: .5s ease;
+}
+
+.social__icons a:hover i {
+    transform: scale(1.2);
+}
+
+.container .logreg__box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: calc(100% - 58%);
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.logreg__box .form__box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #e4e4e4;
+}
+
+.logreg__box .form__box.login {
+    transform: translateX(0);
+    transition: transform .6s ease;
+    transition-delay: .7s ;
+}
+
+.logreg__box.active .form__box.login {
+    transform: translateX(430px);
+    transition-delay: 0s;
+}
+
+
+.logreg__box .form__box.register  {
+    transform: translateX(430px);
+    transition: transform .6s ease;
+    transition-delay: 0s ;
+}
+
+.logreg__box.active .form__box.register  {
+    transform: translateX(0);
+    transition-delay: .7s;
+}
+
+
+
+
+
+
+.form__box h2 {
+    font-size: 32px;
+    text-align: center;
+}
+
+.form__box .input__box {
+    position: relative;
+    width: 340px;
+    height: 50px;
+    border-bottom: 2px solid #e4e4e4;
+    margin: 30px 0;
+}
+
+.input__box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #e4e4e4;
+    font-weight: 500;
+    padding-right: 28px;
+}
+
+
+
+.input__box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s ease;
+}
+
+.input__box .icon {
+    position: absolute;
+    top: 13px;
+    right: 0;
+    font-size: 19px;
+}
+
+.input__box input:focus~label,
+.input__box input:valid~label {
+    top: -5px;
+}
+
+.form__box .remember__forgot {
+    font-size: 14.5px;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.remember__forgot label input {
+    accent-color: #e4e4e4;
+    margin-right: 3px;
+
+}
+
+.remember__forgot a {
+    color: #e4e4e4;
+    text-decoration: none;
+}
+
+.remember__forgot a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #c4103d;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #e4e4e4;
+    font-weight: 500;
+    box-shadow:0 0 10px rgba(0, 0, 0, .5);
+
+}
+
+.form__box .login__register {
+    font-size: 14.5px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login__register p a {
+    color: #e4e4e4;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login__register p a:hover {
+    text-decoration: underline;
+}
+
+
+
+input[type="date"]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+.input__box input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+}
+.input__box input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    margin-right: -7px;
+    z-index: 1; 
+}
+
+
+
+
+.burger-menu > .burger {
+    display: none;
+   
+}
+
+.logo__header {
+    display:none; */
+/* } */

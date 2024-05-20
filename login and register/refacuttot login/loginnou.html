@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="loginnou.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script src="loginnou.js" defer></script>
+
+    <!-- Link către biblioteca jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Link către biblioteca jQuery UI pentru datepicker -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <nav class="nav">
+    
+            <div class="nav__logo">
+                <h2 class="logo__header"><i class='bx bxs-home-heart'></i>RentEase</h2>
+            </div>
+    
+            <div class="nav__menu">
+                <ul>
+                    <li><a href="#" class="link active">Home</a></li>
+                    <li><a href="#" class="link">About</a></li>
+                    <li><a href="#" class="link">Services</a></li>
+                    <li><a href="#" class="link">Contact</a></li>
+                </ul>
+            </div>
+    
+            <div class="nav__button">
+                <button class="btn__header active__btn" id="loginBtn"><a href="../refacuttot login/loginnou.html">Sign In</a></button>
+                <button class="btn__header" id="registerBtn"><a href="../REFACUT TOT/refacuttot.html">Sign Up</a></button>
+            </div>
+    
+            <div class="nav__menu__btn">
+                <i class="bx bx-menu"></i>
+            </div>
+        </nav>
+    </div>
+
+    
+   
+
+    <!-- <header class="header">
+
+        
+        <div class="logo">
+            <h2 class="logo__header"><i class='bx bxs-home-heart'></i>RentEase</h2>
+        </div>
+
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact </a>
+        </nav> -->
+    
+            <!-- BURGER MENU FOR MOBILE VIEW -->
+        <!-- <div class="burger-menu">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </div> -->
+
+        <!-- <form action="#" class="search__bar">
+            <input type="text" placeholder="Search...">
+            <button type="button"><i class='bx bx-search'></i></button>
+        </form> -->
+
+
+        <!-- butonele de login si register -->
+
+    <!-- <div class="sign__in__up__buttons">
+            <button class="btn__header" id="loginBtn">Sign In</button>
+            <button class="btn__header sign__up__button" id="registerBtn">Sign Up</button>
+    </div> -->
+
+        <!-- <div class="burger__menu">
+            <i class='bx bx-menu'></i>
+        </div> -->
+
+        <!-- <h2 class="logo__header"><i class='bx bxs-home-heart'></i>RentEase</h2> -->
+    <!-- </header> -->
+
+
+    <!-- header ends here -->
+
+
+
+    <!---------------------------------------FORM BOX -------------------------------------------------->
+
+    <div class="background"></div>
+    <div class="container">
+
+        <div class="content">
+           
+
+        </div>
+
+        <div class="form__box">
+            <div class="register__container">
+                
+                <div class="top">
+                    <span>Don't have an account? <a href="../REFACUT TOT/refacuttot.html" onclick="register()">Register</a></span>
+                    <header>Sign In</header> <br>
+                </div>
+            
+
+                <div class="input__box">
+                    <input type="text" class="input__field" placeholder="Email">
+                    <i class="bx bx-envelope"></i>
+                </div>
+
+                <div class="input__box">
+                    <input type="password" class="input__field" placeholder="Password">
+                    <i class="bx bx-lock"></i>
+                </div>
+
+
+                <div class="input__box">
+                    <input type="submit" class="submit" value="Login">
+                </div>
+
+                <div class="remember__terms">
+                    <div class="remember">
+                        <input type="checkbox" id="register__check">
+                        <label for="register__check">Remember Me</label>
+                    </div>
+                    <div class="terms">
+                        <label><a href="#">Forgot the password?</a></label>
+                    </div>
+                </div>
+
+                
+                    
+
+            </div>
+        </div>
+    
+<!-- 
+            <div class="form__box register style__register">
+                <form action="#" class="form__register">
+                    <h2>Sign Up</h2> <br>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-user'></i></span>
+                        <input type="text"  id="nameInputRegister" required>
+                        <label id="nameLabelRegister">FirstName & LastName</label> <br>
+                    </div>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-envelope' ></i></span>
+                        <input type="text" id="emailInputRegister" required>
+                        <label id="emailLabelRegister">Email</label>
+                    </div>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" id="passwordInputRegister" required>
+                        <label id="passwordLabelRegister">Password</label>
+                    </div>
+
+                    <div class="input__box">
+                        <span class="icon"><ion-icon name="eye"></ion-icon></span>
+                        <input type="password" id="confirmPasswordInputRegister" required>
+                        <label id="confirmPasswordLabelRegister">Confirm Password</label>
+                    </div>
+
+                    <div class="input__box">
+                        <input type="date" id="birthDateInputRegister" required>
+                        <label id="birthDateLabelRegister">Birth Date</label>
+                    </div>
+
+                    
+
+                    <button type="button" class="btn" onclick="registerBtn()">Sign Up</button>
+
+
+                    <div class="login__register">
+                        <p>Already have an account? <a href="#" class="login__link">Sign In</a></p>
+                    </div>
+
+
+                </form>
+            </div> -->
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

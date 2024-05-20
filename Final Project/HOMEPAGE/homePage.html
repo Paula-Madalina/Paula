@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGE</title>
+    <link rel="stylesheet" href="./homePage.css">
+    <link rel="stylesheet" href="responsive.css">
+    <script src="./homePage.js" defer></script>
+    <!-- Link către biblioteca jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Link către biblioteca jQuery UI pentru datepicker -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+    <div class="background-wrapper">
+    </div>
+    <div class="wrapper">
+        <!-- Navigation bar -->
+        <nav class="nav">
+    
+            <div class="nav__logo">
+                <h2 class="logo__header"><i class='bx bxs-home-heart'></i>RentEase</h2>
+            </div>
+        <!-- Menu -->
+            <div class="nav__menu" id="navMenu">
+                <ul>
+                    <!-- Navigation links -->
+                    <li><a href="#" class="link" id="addNewFlatButton" >New Flat</a></li>
+                    <li><a href="#" class="link" id="allFlatsButton">All Flats</a></li>
+                    <li><a href="#" class="link" id="favoriteFlatsButton">Favorite</a></li>
+
+                    <li><a href="#" class="link" id="myProfileButton">My Profile</a></li>
+
+
+                </ul>
+            </div>
+
+            <!-- User button -->
+            <div class="nav__button">
+
+                <!-- Welcome message -->
+                <p id="welcomeMessage" class="form-control" type="text"  aria-label="readonly input example" readonly></p>
+
+                <!-- Log out button -->
+                <button class="btn__header active__btn" id="registerBtn" onclick="logOutButton()" ><a href="#">Log Out</a></button>
+
+            </div>
+
+            <!-- Menu button for mobile -->
+            <div class="nav__menu__btn">
+                <i class="bx bx-menu" id="burgerMenu"></i>
+            </div>
+        </nav>
+        <div id="favoritesContainer"></div>
+
+
+      
+
+        <!-- Table for adding a new flat -->
+        <table  class="add__flat" id="addFlatTable" >
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+
+        <!-- Table rows for input fields -->
+            <tr>
+                <td data-label="Name">City</td>
+                <td data-label="Value">
+                    <input class="table__input" type="text" id="cityNameInput">
+                    <div id="cityNameError" class="error"></div>
+                </td>
+
+            </tr>
+            <tr>
+                <td data-label="Name">Street Name</td>
+                <td data-label="Value">
+                    <input class="table__input" type="text" id="streetNameInput">
+                    <div id="streetNameError" class="error"></div>
+
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Name">Street Number</td>
+                <td data-label="Value">
+                    <input class="table__input" type="number" id="streetNumberInput">
+                    <div id="streetNumberError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Name">Area Size</td>
+                <td data-label="Value">
+                    <input class="table__input" type="number" id="areaSizeInput">
+                    <div id="areaSizeError" class="error"></div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Name">Has AC</td>
+                <td data-label="Value">
+                    <button class="toggle-button" id="hasACInput" onclick="toggleAC()">OFF</button>
+                    <div id="hasACError" class="error"></div>
+
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Name">Year Built</td>
+                <td data-label="Value">
+                    <input class="table__input" type="number" id="yearBuiltInput">
+                    <div id="yearBuiltError" class="error"></div>
+
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Name">Rent Price</td>
+                <td data-label="Value">
+                    <input class="table__input" type="number" id="rentPriceInput">
+                    <div id="rentPriceError" class="error"></div>
+
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Name">Date available</td>
+                <td data-label="Value">
+                    <input type="date" id="dateAvailableInput">
+                    <div id="dateAvailableError" class="error"></div>
+
+                </td>
+            </tr>
+            <a href="../register+login/index.html"></a>
+
+            <!-- Save button -->
+            <tr>
+                <td colspan="2"> <!-- The colspan is set to 2 to cover both columns of the table -->
+                    <button class="save__button" onclick="saveNewFlat()">Save</button>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+
+        <!-- Modal for confirming save action -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+              <p>Would you like to save?</p>
+              <button id="confirmSaveButton" class="modal__buttons confirm__button">YES</button>
+              <button id="cancelSaveButton" class="modal__buttons cancel__button">NO</button>
+            </div>
+        </div>
+
+        <!-- Modal for confirming logout action -->
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <p>Confirm logging out?</p>
+                <button onclick="confirmLogout()" class="modal__buttons confirm__button">YES</button>
+                <button onclick="closeModal()" class="modal__buttons cancel__button">NO</button>
+            </div>
+        </div>
+
+          
+
+        <!-- Table for displaying all flats -->
+        <div class="background__table">
+            <table id="flatDataTable" border="1" class="viewAllFlats" >
+                <tr>
+                     <!-- Table header cells -->
+                    <!-- Sorting buttons -->
+                    <th id="citySort">City Name <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th id="streetSort">Street Name <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th id="streetNumberSort">Street Number <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th id="areaSizeSort">Area Size <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th id="hasACSort">Has AC <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th id="yearBuiltSort">Year Built <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th id="rentPriceSort">Rent Price <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th id="dateAvailableSort">Date Available <span class="sort-arrow">&#8593;</span><span class="sort-arrow">&#8595;</span></th>
+                    <th>Favorite</th>
+                    <th>Delete</th> 
+                </tr>
+                
+                <!-- Table data will be populated dynamically -->
+            
+            </table>
+        </div>
+
+        <div id="tableControls" class="table__controls" style="display: none;">
+            <!-- <button id="filterButton" class="sort__filter">Filter</button> -->
+        </div>
+        
+        <div id="filterModal" class="modal__filter">
+            <div class="modal__content__filter">
+                 <div>
+                    <label for="cityInput">City:</label>
+                    <input type="text" id="cityInput">
+                    <label for="priceRangeInput">Price Range:</label>
+                    <input type="text" id="priceRangeInput">
+                    <label for="areaSizeRangeInput">Area Size Range:</label>
+                    <input type="text" id="areaSizeRangeInput">
+                    <button id="applyFilterButton" class="apply__button">Apply Filter</button>
+                </div>
+                <span class="close__filter" id="closeFilterCross">&times;</span>
+               
+            </div>
+        </div>
+
+
+        
+        <div class="container" id="container">
+            <div class="left__side">
+                <h4 class="hashtag">#flexiblesolutions</h4>
+           <h1>Find Your Dream Home</h1>
+           <p>Welcome to RentEase, your ultimate destination for finding the perfect flat! Whether you're seeking a cozy studio or a spacious family home, we're here to make your search effortless. From city views to serene neighborhoods, your dream home awaits. Start your journey with RentEase today!</p>
+           <button type="button" class="hero__button" id="startButton">
+            Start here <i class='bx bx-right-arrow-alt hero__icon'></i>
+        </button>
+            </div>
+            <div class="right__side"></div>
+       </div>
+
+       <div class="container">
+            <div class="content"></div>
+            <div class="form__box"></div>
+            <div id="userProfileTableContainer" class="user-profile-table-container" style="display: none;">
+                <!-- Here the user table will be displayed -->
+                <div id="userProfileTable"></div>
+            </div>
+        </div>
+    </div>
+       
+</body>
+</html>

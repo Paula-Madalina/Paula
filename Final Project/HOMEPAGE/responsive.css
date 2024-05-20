@@ -1,0 +1,157 @@
+@media screen and (max-width:1340px) {
+
+    .favorites-table {
+        margin-left: 100px; /* Adjust margin for elements to the left */
+    }
+    
+
+}
+
+@media screen and (max-width:1202px) {
+
+    .favorites-table, .viewAllFlats {
+        margin-left: 150px; /* Adjust margin for elements to the left */
+    }
+    .nav {
+        justify-content: space-around; /* Distribute space evenly in navigation */
+        padding: 0; /* Remove padding from navigation */
+    }
+
+}
+
+@media screen and (max-width:1195px) {
+
+    .favorites-table, .viewAllFlats {
+        margin-left: 200px; /* Adjust margin for elements to the left */
+    }
+    .nav {
+        justify-content: space-around; /* Distribute space evenly in navigation */
+        padding: 0; /* Remove padding from navigation */
+    }
+
+}
+
+@media screen and (max-width:1135px) {
+
+    .nav {
+        justify-content: space-around; /* Distribute space evenly in navigation */
+        padding: 0; /* Remove padding from navigation */
+    }
+    .nav__menu ul li .link {
+        margin: 0 9px; /* Set margin for links in navigation menu */
+    }
+
+    .favorites-table, .viewAllFlats {
+        margin-left: 160px; /* Adjust margin for elements to the left */
+    }
+
+}
+
+@media screen and (max-width:1052px) {
+
+    .nav {
+        justify-content: space-around; /* Distribute space evenly in navigation */
+        padding: 0; /* Remove padding from navigation */
+    }
+    .nav__menu ul li .link {
+        margin: 0 9px; /* Set margin for links in navigation menu */
+    }
+
+    .favorites-table, .viewAllFlats {
+        margin: 100px 100px; /* Adjust padding for elements to the left */
+    }
+    .add__flat {
+        width: 55%;
+    }
+
+}
+
+@media screen and (max-width:816px) {
+
+    .nav {
+        justify-content: space-around; /* Distribute space evenly in navigation */
+        padding: 0; /* Remove padding from navigation */
+    }
+    
+    .nav__button {
+        display: none; /* Hide navigation button */
+    }
+
+    .nav__menu.responsive {
+        top: 100px; /* Position responsive menu */
+    }
+
+    .nav__menu {
+        position: absolute; /* Set absolute positioning */
+        top: -800px; /* Position menu offscreen initially */
+        display: flex; /* Use flexbox for layout */
+        justify-content: center; /* Center items in menu */
+        background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+        width: 100%; /* Full width */
+        height: 90vh; /* Height of 90% of viewport height */
+        backdrop-filter: blur(20px); /* Blur background */
+        transition: .3s; /* Smooth transition for changes */
+    }
+
+    .nav__menu ul {
+        flex-direction: column; /* Stack menu items vertically */
+        text-align: center; /* Center align text */
+    }
+
+    .nav__menu ul li {
+        font-size: 20px; /* Set font size for menu items */
+        margin-top: 30px; /* Top margin for spacing */
+        margin-bottom: 30px; /* Bottom margin for spacing */
+    }
+
+    .nav__menu__btn {
+        display: block; /* Show menu button */
+    }
+
+    .nav__menu__btn i {
+        font-size: 25px; /* Set icon size */
+        color: #000000; /* Set icon color */
+        padding: 10px; /* Add padding around icon */
+        background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+        border-radius: 50%; /* Round the icon */
+        cursor: pointer; /* Change cursor to pointer */
+        transition: .3s; /* Smooth transition for changes */
+    }
+
+    .nav__menu__btn i:hover {
+        background: rgba(255, 255, 255, 0.15); /* Change background on hover */
+    }
+
+    .favorites-table {
+        margin-left: 30px; /* Auto margin to center or right-align */
+    }
+    
+    .viewAllFlats {
+        margin-left: 50px; /* Adjust margin for viewAllFlats */
+    }
+
+}
+
+@media screen and (max-width:790px) {
+
+    .favorites-table {
+        margin-left: 100px; /* Auto margin to center or right-align */
+    }
+
+    .viewAllFlats {
+        margin: 100px 0; /* Adjust margin for viewAllFlats */
+    }
+    .container {
+        display: block;
+    }
+    .left__side {
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+    }
+    .add__flat {
+        width: 60%;
+    }
+
+}
+

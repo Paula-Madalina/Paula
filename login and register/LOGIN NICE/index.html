@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ressponsive.css">
+    <script src="login.js" defer></script>
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    
+   
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    
+         <!-- BURGER MENU FOR MOBILE VIEW -->
+    <div class="burger-menu">
+        <div class="burger"></div>
+        <div class="burger"></div>
+        <div class="burger"></div>
+    </div>
+
+        <form action="#" class="search__bar">
+            <input type="text" placeholder="Search...">
+            <button type="button"><i class='bx bx-search'></i></button>
+        </form>
+
+
+        <h2 class="logo__header"><i class='bx bxs-home-heart'></i>RentEase</h2>
+    </header>
+
+    <div class="background"></div>
+    <div class="container">
+
+        <div class="content">
+            <h2 class="logo"><i class='bx bxs-home-heart'></i>RentEase</h2>
+            <div class="text__sci">
+                <h2>Welcome <br></h2>
+                <p>Your ideal choice for future living.</p>
+
+                <div class="social__icons">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                    <a href="#"><i class='bx bxl-twitter' ></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="logreg__box">
+            <div class="form__box login">
+                <form action="#">
+                    <h2>Sign In</h2> <br>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-envelope' ></i></span>
+                        <input type="text" id="emailInput" required>
+                        <label id="emailLabel">Email</label>
+                    </div>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" required>
+                        <label>Password</label>
+                    </div>
+
+                    <div class="remember__forgot">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+
+                    <button type="button" class="btn">Sign In</button>
+
+
+                    <div class="login__register">
+                        <p>Don't have an account? <a href="#" class="register__link">Sign Up</a></p>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+            <div class="form__box register style__register">
+                <form action="#" class="form__register">
+                    <h2>Sign Up</h2> <br>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-user'></i></span>
+                        <input type="text"  id="nameInputRegister" required>
+                        <label id="nameLabelRegister">FirstName & LastName</label> <br>
+                    </div>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-envelope' ></i></span>
+                        <input type="text" id="emailInputRegister" required>
+                        <label id="emailLabelRegister">Email</label>
+                    </div>
+
+                    <div class="input__box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" id="passwordInputRegister" required>
+                        <label id="passwordLabelRegister">Password</label>
+                    </div>
+
+                    <div class="input__box">
+                        <span class="icon"><ion-icon name="eye"></ion-icon></span>
+                        <input type="password" id="confirmPasswordInputRegister" required>
+                        <label id="confirmPasswordLabelRegister">Confirm Password</label>
+                    </div>
+
+                    <div class="input__box">
+                        <!-- <span class="icon"><i class='bx bxs-lock-alt' ></i></span> -->
+                        <input type="date" id="birthDateInputRegister" required>
+                        <label id="birthDateLabelRegister">Birth Date</label>
+                    </div>
+
+                    <!-- <div class="remember__forgot">
+                        <label><input type="checkbox">I agree to the terms & conditions</label>
+                        
+                    </div> -->
+                    
+
+                    <button type="button" class="btn" onclick="registerBtn()">Sign Up</button>
+
+
+                    <div class="login__register">
+                        <p>Already have an account? <a href="#" class="login__link">Sign In</a></p>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
