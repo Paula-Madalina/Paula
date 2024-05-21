@@ -291,6 +291,13 @@ confirmButton.onclick = function() {
     saveToLocalStorage(); 
     clearInputs(); // Clear the input content
     modal.style.display = "none";
+    toastr["success"]("Flat saved!");
+    setTimeout(function() {
+        location.reload();
+
+    }, 1000);
+
+
 }
 
 // Event listener for the cancel button in the modal
@@ -742,7 +749,9 @@ function displayUserProfile() {
             let currentValue = valueCell.textContent.trim();
             let newValue = prompt("Enter new value:", currentValue);
             toastr["success"]("Changed data");
-            
+            setTimeout(function() {
+                location.reload();
+            }, 1000);
             if (newValue !== null && newValue !== "") {
                 if (valueCell.dataset.property === "birthDate") {
                     let newDate = new Date(newValue);
