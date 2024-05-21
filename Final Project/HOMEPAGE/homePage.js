@@ -741,6 +741,8 @@ function displayUserProfile() {
             let valueCell = this.parentElement.previousElementSibling;
             let currentValue = valueCell.textContent.trim();
             let newValue = prompt("Enter new value:", currentValue);
+            toastr["success"]("Changed data");
+            
             if (newValue !== null && newValue !== "") {
                 if (valueCell.dataset.property === "birthDate") {
                     let newDate = new Date(newValue);
