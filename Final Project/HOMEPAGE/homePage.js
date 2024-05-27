@@ -669,6 +669,10 @@ function closeModal() {
     // Hide the logout modal when the user clicks "No"
     var modal = document.getElementById('logoutModal');
     modal.style.display = 'none';
+
+    setTimeout(function() {
+        location.reload();
+    }, 300);
 }
 
 
@@ -783,7 +787,7 @@ function displayUserProfile() {
 
                     setTimeout(function() {
                         window.location.href = "../register+login/index.html"; // Redirect user to login page
-                    }, 5000);
+                    }, 1000);
                 
                     return;
                 }
@@ -815,115 +819,12 @@ function resetInactivityTimer() {
 
 // Function to log out the user
 function logOutUser() {
-    // Here you can add code to perform logout, such as redirecting to the login page
-    // For example:
     confirmLogout(); // Call the logout function already defined in your code
 }
 
 // Start the inactivity timer when the document is fully loaded
 document.addEventListener("DOMContentLoaded", startInactivityTimer);
 
-// // Get the filter button element
-// let filterButton = document.getElementById("filterButton");
-
-// // Get the filter modal element
-// let filterModal = document.getElementById("filterModal");
-
-// // Get the close filter cross element
-// let closeFilterCross = document.getElementById("closeFilterCross");
-
-// // Add click event listener to the filter button
-// filterButton.addEventListener("click", function() {
-//     // Display the filter modal
-//     filterModal.style.display = "block";
-// });
-
-// // Add click event listener to the close filter cross
-// closeFilterCross.addEventListener("click", function() {
-//     // Hide the filter modal
-//     filterModal.style.display = "none";
-// });
-
-// // Select the "Apply Filter" button
-// const applyFilterButton = document.getElementById("applyFilterButton");
-
-// // Add an event listener for the click event on the "Apply Filter" button
-// applyFilterButton.addEventListener("click", applyFilter);
-
-// // Function triggered when the user applies the filter
-// function applyFilter() {
-//     // Get the values entered by the user for each filter
-//     const cityFilter = document.getElementById("cityInput").value.trim();
-//     const priceRangeFilter = document.getElementById("priceRangeInput").value.trim();
-//     const areaSizeRangeFilter = document.getElementById("areaSizeRangeInput").value.trim();
-
-//     // Get the rows from the table
-//     const rows = document.querySelectorAll("#flatDataTable tr");
-
-//     // Loop through each row and check if it matches the user-entered filters
-//     rows.forEach(row => {
-//         const cells = row.querySelectorAll("td"); // Get the cells from the current row
-//         const city = cells[0].textContent.trim(); // Value from the first cell (city)
-//         const price = cells[6].textContent.trim(); // Value from the seventh cell (price)
-//         const areaSize = cells[3].textContent.trim(); // Value from the fourth cell (area size)
-
-//         // Check if each property matches the user-entered filters
-//         const cityMatch = city.toLowerCase().includes(cityFilter.toLowerCase());
-//         const priceMatch = price === priceRangeFilter || priceRangeFilter === "";
-//         const areaSizeMatch = areaSize === areaSizeRangeFilter || areaSizeRangeFilter === "";
-
-//         // If the row matches all filters, display the row, otherwise hide it
-//         if (cityMatch && priceMatch && areaSizeMatch) {
-//             row.style.display = "table-row"; // Display the row
-//         } else {
-//             row.style.display = "none"; // Hide the row
-//         }
-//     });
-// }
-
-// // Function triggered when the user applies the sorting
-// function applySort() {
-//     // Get the values entered by the user for each sorting criterion
-//     const citySort = document.getElementById("cityInputSort").value.trim().toLowerCase();
-//     const priceSort = document.getElementById("priceInput").value.trim().toLowerCase();
-//     const areaSizeSort = document.getElementById("areaSizeInput").value.trim().toLowerCase();
-
-//     // Get the rows from the table (excluding the header row)
-//     const rows = Array.from(document.querySelectorAll("#flatDataTable tr")).slice(1);
-
-//     // Sort the rows based on the specified criteria
-//     rows.sort((a, b) => {
-//         const cityA = a.cells[0].textContent.trim().toLowerCase();
-//         const cityB = b.cells[0].textContent.trim().toLowerCase();
-//         const priceA = parseFloat(a.cells[6].textContent.trim());
-//         const priceB = parseFloat(b.cells[6].textContent.trim());
-//         const areaSizeA = parseFloat(a.cells[3].textContent.trim());
-//         const areaSizeB = parseFloat(b.cells[3].textContent.trim());
-
-//         // Sort by city
-//         if (citySort !== "") {
-//             if (cityA !== citySort && cityB === citySort) return -1;
-//             if (cityA === citySort && cityB !== citySort) return 1;
-//         }
-
-//         // Sort by price
-//         if (priceSort !== "") {
-//             if (priceA !== priceB) return priceA - priceB;
-//         }
-
-//         // Sort by area size
-//         if (areaSizeSort !== "") {
-//             if (areaSizeA !== areaSizeB) return areaSizeA - areaSizeB;
-//         }
-
-//         // If the rows are equal, maintain their initial order
-//         return 0;
-//     });
-
-//     // Rearrange the rows in the table according to the sorted order
-//     const flatDataTable = document.getElementById("flatDataTable");
-//     rows.forEach(row => flatDataTable.appendChild(row));
-// }
 
 // Get the th element and the sort arrow with the sort-arrow class
 const citySort = document.getElementById('citySort');
@@ -1274,7 +1175,6 @@ hasACSort.addEventListener('click', () => {
     rows.sort((a, b) => {
         const hasACA = a.cells[4].textContent.trim().toUpperCase(); // Colțul "Has AC" este a șasea coloană (index 5)
         const hasACB = b.cells[4].textContent.trim().toUpperCase();
-console.log("GF")
         if (isAscending) {
             if (hasACA === 'YES' && hasACB === 'NO') return -1;
             if (hasACA === 'NO' && hasACB === 'YES') return 1;

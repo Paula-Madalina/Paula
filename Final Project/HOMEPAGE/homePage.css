@@ -546,3 +546,8 @@ table > tr{
     color: rgb(255, 0, 0);
     border: 1px solid rgb(255, 0, 0);
 }
+
+.container p {
+    text-indent: 40px; 
+    text-align: justify;
+}
