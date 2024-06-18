@@ -1,0 +1,7 @@
+.ticket {
+    background-color: aqua;
+    display: inline-block;
+    border-radius: 3px;
+    border: 1px black solid;
+    margin: 10px ;
+}
