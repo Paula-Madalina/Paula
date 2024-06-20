@@ -10,10 +10,14 @@ function Login() {
 		// console.log(name);
 		// console.log(value);
 		setForm({ ...form, [name]: value });
+		console.log(name);
+		console.log(value);
 		validateFields(name, value);
 	};
 
 	const validateFields = (fieldName, inputValue) => {
+		console.log(fieldName);
+		console.log(inputValue);
 		let newErrors = { ...errors };
 
 		const emailRegex = /\S+@\S+\.\S+/;
