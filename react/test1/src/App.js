@@ -18,6 +18,9 @@ import List from './components/List.jsx';
 import ButtonYoutube from './components/ButtonYoutube.jsx';
 import ProfilePicture from './components/ProfilePicture.jsx';
 import MyComponent from './components/MyComponent.jsx';
+import UserContext from './components/context.js';
+import Navbar from './components/navbar.js';
+import { useState } from 'react';
 
 // const message = "Hello from React";
 // const message2 = "bravoo";
@@ -38,6 +41,10 @@ import MyComponent from './components/MyComponent.jsx';
 // }
 
 function App() {
+
+  const [test, setTest]= useState("Horia")
+
+
   // const fruits = [{id:1, name:"apple", calories:95}, 
   //                 {id:2,name:"orange", calories:45}, 
   //                 {id:3,name:"banana", calories:105}, 
@@ -49,6 +56,7 @@ function App() {
   //                     {id:8,name:"carrots", calories:25}, 
   //                     {id:9,name:"corn", calories:63}, 
   //                     {id:10,name:"broccoli", calories:50}];
+
   return (
     <div>
    
@@ -83,10 +91,23 @@ function App() {
         {/* {fruits.length > 0 &&  <List items={fruits} category = "Fruits"></List>}
         {vegetables.length > 0 &&  <List items={vegetables} category = "Vegetables"></List>} */}
 
-{/* <ButtonYoutube></ButtonYoutube>         */}
-{/* <ProfilePicture></ProfilePicture> */}
-{/* <UserForm></UserForm> */}
-<MyComponent></MyComponent>
+        {/* <ButtonYoutube></ButtonYoutube>         */}
+        {/* <ProfilePicture></ProfilePicture> */}
+        {/* <UserForm></UserForm> */}
+        {/* <MyComponent></MyComponent> */}
+
+        {/* <UserContext></UserContext> */}
+
+
+        <UserContext.Provider value = {{test, setTest}}>        
+            <Navbar></Navbar>
+        </UserContext.Provider>
+
+        <UserContext.Provider value={{test,setTest}}>
+
+        </UserContext.Provider>
+
+
    </div>
   );
 }

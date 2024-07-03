@@ -1,21 +1,17 @@
-import "./button.css";
+import UserContext from "./context";
+import { useContext } from "react";
+function Button() {
 
-function Button(props) {
-    function handleClick(action) {
-        if(action=="delete") {
-            alert(props.text)
-        }  
-        if(action=="save") {
-            alert(props.text)
-        }  
-        if(action=="favorite") {
-            alert(props.text)
-        }
-    }
+    let user = useContext(UserContext);
+  
     return(
-        <button className={props.class} onClick={()=>handleClick(props.action)}>{props.label}</button>
-        
+        <div>
+
+        <button onClick={()=>user.setTest(Math.random()*1000)}>{user.test}</button>
+
+        </div>
     )
 }
 
 export default Button;
+

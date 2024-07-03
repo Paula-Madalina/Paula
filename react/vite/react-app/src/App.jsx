@@ -1,19 +1,46 @@
-// import { useState } from 'react'
-// import './App.css';
-// import Auth from './components/authentication/auth/Auth';
-import ToDoList from './components/authentication/toDoList/toDoList';
-// import Login from './components/authentication/logIn/Login';
-import Register from './components/authentication/register/Register';
+// App.jsx
+import React, { useState } from "react";
+// import Register from "./components/Register";
+// import Login from "./components/Login";
+// import Home from "./components/Home";
 
-function App() {
+import Register from "./components/authentication/register/Register";
+import Login from "./components/authentication/logIn/Login";
+import Home from "./components/authentication/home/Home";
+import "./main.css"
+
+const App = () => {
+  const [currentPage, setCurrentPage] = useState("register");
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case "register":
+        return <Register />;
+      case "home":
+        return <Home />;
+      default:
+        return <Login />;
+    }
+  };
+
   return (
-    <>
-    {/* <Auth></Auth> */}
-    {/* <ToDoList></ToDoList> */}
-    <Register></Register>
-    {/* <Login></Login> */}
-    </>
-  )
-}
+    <div className="App">
+      <header>
+        <nav>
+          {/* Buton pentru Register */}
+          <button className="swap__button" onClick={() => setCurrentPage("register")}>Register</button>
+           {/* Buton pentru Login */}
+           <button className="swap__button" onClick={() => setCurrentPage("login")}>Login</button>
+          {/* Buton pentru Home */}
+          <button className="swap__button" onClick={() => setCurrentPage("home")}>Home</button>
+        </nav>
+      </header>
+      <main>
+        {/* Renderează pagina corespunzătoare */}
+        {renderPage()}
+      </main>
+    </div>
+  );
+};
 
 export default App;

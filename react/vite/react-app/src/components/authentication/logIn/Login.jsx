@@ -1,80 +1,88 @@
-import { useState } from "react";
+import { useForm } from "../../../customHooks/useForm";
+import { getLoginMap } from "../../../maps/authMaps";
 
 function Login() {
-	const [form, setForm] = useState({ email: "", password: "" });
-	const [errors, setErrors] = useState({ email: "", password: "" });
-	const [isFormValid, setIsFormValid] = useState(false);
+	const {form, handleChange, errors, isFormValid} = useForm({email:"", password:""});
 
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-		// console.log(name);
-		// console.log(value);
-		setForm({ ...form, [name]: value });
-		console.log(name);
-		console.log(value);
-		validateFields(name, value);
-	};
+	const loginMap = getLoginMap(handleChange, errors, form);
+	const loginInputs = loginMap.map((input) =>
 
-	const validateFields = (fieldName, inputValue) => {
-		console.log(fieldName);
-		console.log(inputValue);
-		let newErrors = { ...errors };
-
-		const emailRegex = /\S+@\S+\.\S+/;
-		if (fieldName === "email") {
-			if (!inputValue) {
-				newErrors.email = "Email is required";
-				setIsFormValid(false);
-			} else if (!emailRegex.test(inputValue)) {
-				newErrors.email = "Email is in the wrong format";
-				setIsFormValid(false);
-			} else {
-				newErrors.email = "";
-				setIsFormValid(true);
-			}
-		}
-		if (fieldName === "password") {
-			if (!inputValue) {
-				newErrors.password = "Password is required";
-				setIsFormValid(false);
-			} else {
-				newErrors.password = "";
-				setIsFormValid(true);
-			}
-		}
-		setErrors(newErrors);
-	};
-
+	<div className="login_input" key={input.id}>
+		<div className="itworks">
+			<label className="input__name">{input.label}</label>
+			<input
+                    className={`input__box ${input.error ? 'error' : input.value.trim() && !input.error ? 'valid' : ''}`}
+                    id={input.id}
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    name={input.name}
+                    value={input.value}
+                    onChange={input.onChange}
+                />
+		</div>
+		<span className="error__message">{input.error && input.error.message}</span>
+	</div>)
+	
+	console.log(loginInputs)
+	console.log(loginMap)
+	
+	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!isFormValid) return;
 		console.log("Submitted form");
+
+		const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+		const foundUser = storedUsers.find((user)=> user.email===form.email && user.password===form.password);
+
+
+		if(foundUser) {
+			alert("login successfuly")
+		} else {
+			alert("invalid email or password");
+			setErrors({
+				...errors, 
+				email:{message:"invalid email or password", success:false},
+				password:{message:"invalid email or password", success:false},
+			})
+		}
+
+
+
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div className="login_input">
-				<label>Email</label>
-				<input
+		<div className="page__container  login__form">
+		<form onSubmit={handleSubmit} className="form__style">
+		<h1 className="form__name">Login</h1>
+
+			{/* <div className="login_input">
+				<label className="input__name">Email</label>
+				<input className="input__box"
 					type="email"
 					name="email"
 					value={form.email}
 					onChange={handleChange}
 				/>
-				<span>{errors.email && <p>{errors.email}</p>}</span>
+				<span className="error__message">{errors.email && <p>{errors.email.message}</p>}</span>
 			</div>
 			<div className="login_input">
-				<label>Password</label>
-				<input
+				<label className="input__name">Password</label>
+				<input className="input__box"
 					type="password"
 					name="password"
 					value={form.password}
 					onChange={handleChange}
 				/>
-				<span>{errors.password && errors.password}</span>
-			</div>
-			<button type="submit">Login</button>
+				<span className="error__message">{errors.password && errors.password.message}</span>
+			</div> */}
+		{loginInputs}
+
+			<button className="login__register__button" type="submit" disabled={!isFormValid}>Login</button>
+			
 		</form>
+
+		</div>
 	);
 }
 
