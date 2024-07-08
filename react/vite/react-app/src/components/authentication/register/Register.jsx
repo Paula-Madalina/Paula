@@ -13,7 +13,7 @@ function Register() {
 	<div className="register_input" key={input.id}>
 		<div className="itworks">
 			<label className="input__name">{input.label}</label>
-			<input className={`input__box ${input.error ? 'error' : ''} ${input.value && !input.error ? 'valid' : ''}`} id={input.id} type={input.type} placeholder={input.placeholder} name={input.name} value={input.value} onChange={input.onChange}></input>
+			<input className={`input__box ${!input.error.success ? 'error' : ''} ${input.value && input.error.success ? 'valid' : ''}`} id={input.id} type={input.type} placeholder={input.placeholder} name={input.name} value={input.value} onChange={input.onChange}></input>
 		</div>
 		<span className="error__message">{input.error && input.error.message}</span>
 	</div>)
