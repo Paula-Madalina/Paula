@@ -36,8 +36,8 @@ import { validationRules } from "../utils/validation/validation";
 		);
 		const isValid = errorsArray.every((value) => value === true);
 
-		 setIsFormValid(true);
-	}, [errors, form]);
+		 setIsFormValid(isValid);
+	}, [errors]);
 
     return {form, handleChange,errors, isFormValid}
 }

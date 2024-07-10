@@ -1,5 +1,6 @@
 import { useForm } from "../../../customHooks/useForm";
 import { getLoginMap } from "../../../maps/authMaps";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Login() {
 	const {form, handleChange, errors, isFormValid} = useForm({email:"", password:""});
@@ -23,10 +24,13 @@ function Login() {
 		</div>
 		<span className="error__message">{input.error && input.error.message}</span>
 	</div>)
+
+
 	
 	console.log(loginInputs)
 	console.log(loginMap)
 	
+	const navigate = useNavigate();
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -38,7 +42,8 @@ function Login() {
 
 
 		if(foundUser) {
-			alert("login successfuly")
+			alert("login successfuly");
+			navigate(`/`);
 		} else {
 			alert("invalid email or password");
 			setErrors({
@@ -48,7 +53,8 @@ function Login() {
 			})
 		}
 
-
+	//  // Navigate to login page
+	//  navigate(`/register`);
 
 	};
 
@@ -80,7 +86,8 @@ function Login() {
 		{loginInputs}
 
 			<button className="login__register__button" type="submit" disabled={!isFormValid}>Login</button>
-			
+			<span className="navlink__button">Don't have an account? <NavLink className="navigation" to="/register">Register here</NavLink> </span>
+
 		</form>
 
 		</div>

@@ -61,6 +61,7 @@ nav {
   }
   
   .form__style {
+    margin-top: 100px;
     background-color: rgb(196, 123, 123); /* Culoarea de fundal a formularului */
     width: 500px; /* Lățimea formularului */
     padding: 20px; /* Spațierea internă a formularului */
@@ -145,4 +146,20 @@ nav {
 .login__form {
     height: 400px;
 
+}
+
+
+.navlink__button {
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.navigation {
+    color: rgb(60, 0, 255);
+    text-decoration: none;
+}
+
+.navigation:hover {
+    color: rgb(124, 11, 30);
+    cursor: pointer;
 }

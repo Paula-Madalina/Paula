@@ -103,9 +103,7 @@ function App() {
             <Navbar></Navbar>
         </UserContext.Provider>
 
-        <UserContext.Provider value={{test,setTest}}>
-
-        </UserContext.Provider>
+  
 
 
    </div>

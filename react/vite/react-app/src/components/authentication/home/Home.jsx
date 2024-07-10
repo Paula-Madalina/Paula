@@ -12,7 +12,13 @@ function Home() {
   //   setRenderCount(prevRenderCount=>renderCount=prevRenderCount+1)
   // },[]);
 
-  
+  return(
+    <div>
+      <h1>Home Page</h1> <br />
+    <button className="login__register__button" type="submit">Login</button> 
+    <button className="login__register__button" type="submit">Sign up</button>    
+    </div>
+  )
 
   return (
     <div>
