@@ -9,6 +9,8 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import Register from "./components/authentication/register/Register";
 import Login from "./components/authentication/logIn/Login";
 import Home from "./components/authentication/home/Home";
+import { ToastContainer } from 'react-toastify'
+
 
 const App = () => {
   // const [currentPage, setCurrentPage] = useState("register");
@@ -24,7 +26,7 @@ const App = () => {
   //   }
   // };
 
-  // return (
+  return (
   //   <div className="App">
   //     <header>
   //       <nav>
@@ -41,7 +43,8 @@ const App = () => {
   //       {renderPage()}
   //     </main>
   //   </div>
-  // );
+  <ToastContainer></ToastContainer>
+  );
 };
 
 export default App;

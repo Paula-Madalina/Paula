@@ -1,6 +1,9 @@
 import { useRef, useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+  const navigate = useNavigate();
+
   // const [name, setName] = useState('');
   // const  inputRef = useRef(1);
   // useEffect(()=> {
@@ -12,11 +15,20 @@ function Home() {
   //   setRenderCount(prevRenderCount=>renderCount=prevRenderCount+1)
   // },[]);
 
+  const handleLoginClick =() => {
+    navigate('/login'); 
+
+   } 
+   const handleRegisterClick =() => {
+    navigate('/register'); 
+
+   }
+
   return(
-    <div>
-      <h1>Home Page</h1> <br />
-    <button className="login__register__button" type="submit">Login</button> 
-    <button className="login__register__button" type="submit">Sign up</button>    
+    <div className="home__navbar">
+      <h1 className="home__title">Home Page</h1>
+    <button className="login__register__button" type="submit" onClick={handleRegisterClick}>Register</button>    
+    <button className="login__register__button" type="submit" onClick={handleLoginClick}>Login</button> 
     </div>
   )
 

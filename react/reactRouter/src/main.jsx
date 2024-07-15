@@ -7,17 +7,18 @@ import Home from './pages/home.jsx'
 import Profile from './pages/profile.jsx'
 import Profiles from './pages/profiles.jsx'
 import NotFound from './pages/notFound.jsx'
+import MatUi from './pages/matUi.jsx'
 
 
 const router = createBrowserRouter([
   {
     path:'/',
-    element: <Home/>, 
+    element: <MatUi/>, 
     errorElement: <NotFound></NotFound>
   },
   {
-    path:'/profile',
-    element: <Profile/>,
+    path:'/home',
+    element: <Home/>,
     children: [{
       path:':userId',
     element: <Profiles/>

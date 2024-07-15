@@ -7,11 +7,14 @@ import './main.css'
 import Home from './components/authentication/home/Home.jsx'
 import Register from './components/authentication/register/Register.jsx'
 import Login from './components/authentication/logIn/Login.jsx'
+import Auth from './components/authentication/auth/Auth.jsx'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'; 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Auth />
     // errorElement: <NotFound />
   },
   {
@@ -31,5 +34,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </React.StrictMode>
 )

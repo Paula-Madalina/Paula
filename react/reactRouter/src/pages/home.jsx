@@ -18,7 +18,7 @@ function Home() {
   ];
 
   const [newOptions, setNewOptions] = useState(options);
-  const [nume, setNume] = useState("")
+  const [nume, setNume] = useState("");
 
 
   const columns = [

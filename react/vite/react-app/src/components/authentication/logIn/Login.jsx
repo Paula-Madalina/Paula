@@ -1,6 +1,7 @@
 import { useForm } from "../../../customHooks/useForm";
 import { getLoginMap } from "../../../maps/authMaps";
 import { NavLink, useNavigate } from "react-router-dom";
+import showToastr from "../../../services/toaster-service";
 
 function Login() {
 	const {form, handleChange, errors, isFormValid} = useForm({email:"", password:""});
@@ -34,6 +35,10 @@ function Login() {
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
+		return showToastr("error", "invalid login credentials!");
+
+
 		if (!isFormValid) return;
 		console.log("Submitted form");
 
