@@ -179,8 +179,8 @@ function MatUi() {
     
         <Dialog open={openDialog} onClose={handleCloseDialog}>
                     <DialogTitle>Edit Details</DialogTitle>
-                    <DialogContent>
-                        <TextField
+                    <DialogContent  >
+                        <TextField sx={{mt:"10px"}}
                             id="editFirstName"
                             name="firstName"
                             label="First Name"
@@ -189,7 +189,7 @@ function MatUi() {
                             onChange={handleChange}
                             required
                         />
-                        <TextField
+                        <TextField sx={{mt:"10px"}}
                             id="editLastName"
                             name="lastName"
                             label="Last Name"
@@ -198,7 +198,7 @@ function MatUi() {
                             onChange={handleChange}
                             required
                         />
-                        <TextField
+                        <TextField sx={{mt:"10px"}}
                             id="editUniversity"
                             name="university"
                             label="University"
