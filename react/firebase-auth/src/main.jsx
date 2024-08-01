@@ -8,6 +8,7 @@ import Register from './components/register.jsx';
 import Home from './components/home.jsx'
 import Header from './components/header.jsx';
 import { AuthProvider } from './contexts/authContext.jsx';
+import Http
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
 {
     path:'/header',
     element:<Header></Header>
-}
+},
+{
+  path:'/http',
+  element:<Header></Header>
+},
 ])
 
 

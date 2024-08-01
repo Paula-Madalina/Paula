@@ -8,6 +8,11 @@ import './App.css'
 function App() {
   const [apartments, setApartments] = useState([]);
 
+  // salvare in firstore
+  // const apartmentsCollection = collection(db, "apartments");
+  // await setDoc
+
+
 // preluare de date
 
   // 1.GET ALL DOCUMENTS FROM APARTMENTS
